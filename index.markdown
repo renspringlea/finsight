@@ -6,7 +6,7 @@ navigate:
 - [trade](#trade)
 - [retail-prices](#retail-prices)
 - [about](#about)
-- [country-pages](#country-pages)  
+- [country-pages](#country-pages)
 
 # production
 ![map_production.png]({{ site.url }}assets/images/map_production.png)  
