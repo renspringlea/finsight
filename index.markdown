@@ -17,22 +17,29 @@ layout: home
 ![g_production_value2.png]({{ site.url }}assets/images/g_production_value2.png)
 [download data]({{ site.url }}downloads/value.csv)  
 
+# retail prices
 
+<table>
+  {% for row in site.data.eu_retail_aggregate %}
+    {% if forloop.first %}
+    <tr>
+      {% for pair in row %}
+        <th>{{ pair[0] }}</th>
+      {% endfor %}
+    </tr>
+    {% endif %}
 
-retail, for each species:
-bar graph of price by country and species by country (panels)
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</table>
 
+# trade
 trade, for each species:
 a huge graph showing arrows from country to country
 
-time series for the key statistics, aggregated across country, by species
-- production individuals
-- production price
-- retail price
 
-# tables
-
-sortable tables
 
 # about
 finsight is an online dashboard that provides access to key industry and economic data relating to fish farming in Europe, presented in a way convenient for fish welfare advocates. Data is automatically retrieved, processed, and updated monthly. All data is from public sources.  
