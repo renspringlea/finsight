@@ -1,6 +1,12 @@
 ---
 layout: home
 ---
+navigate:  
+- [production](#production)  
+- [trade](#trade)  
+- [retail-prices](#retail-prices)  
+- [about](#about)  
+- [country-pages](#country-pages)  
 
 # production
 ![map_production.png]({{ site.url }}assets/images/map_production.png)  
@@ -24,7 +30,7 @@ layout: home
 # trade
 ![map_trade_flow.png]({{ site.url }}assets/images/map_trade_flow.png)  
 
-# retail prices
+# retail-prices
 
 <table>
   {% for row in site.data.eu_retail_aggregate %}
@@ -58,3 +64,5 @@ I live and work on the unceded land of the Kaurna people.
 | / \__+___/      
 |/     |/
 ~~~
+
+# country-pages
