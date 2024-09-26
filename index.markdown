@@ -2,10 +2,10 @@
 layout: home
 ---
 navigate:  
-- [production](#production)  
-- [trade](#trade)  
-- [retail-prices](#retail-prices)  
-- [about](#about)  
+- [production](#production)
+- [trade](#trade)
+- [retail-prices](#retail-prices)
+- [about](#about)
 - [country-pages](#country-pages)  
 
 # production
