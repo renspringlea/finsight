@@ -2,9 +2,19 @@
 layout: home
 ---
 
-# graphs
-production, for each species:
-bar graph of production individuals, weight, and price by country (panels)
+# production
+![g_production_individuals.png](/assets/images/g_production_individuals.png)
+![g_production_individuals2.png](/assets/images/g_production_individuals2.png)  
+[download data]({{ site.url }}/downloads/production_individuals.csv)  
+
+![g_production_weight.png](/assets/images/g_production_weight.png)
+![g_production_weight2.png](/assets/images/g_production_weight2.png)  
+[download data]({{ site.url }}/downloads/production_weight.csv)  
+
+![g_production_value.png](/assets/images/g_production_value.png)
+![g_production_value2.png](/assets/images/g_production_value2.png)  
+[download data]({{ site.url }}/downloads/value.csv)  
+
 
 retail, for each species:
 bar graph of price by country and species by country (panels)
