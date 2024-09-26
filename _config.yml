@@ -23,7 +23,7 @@ email: info@animalask.org
 description: >- # this means to ignore newlines until "baseurl:"
   data for european fish welfare advocates
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://renspringlea.github.io/finsight/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
 github_username:
 
