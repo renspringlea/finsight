@@ -1,27 +1,27 @@
-"Product","Country","Category","Product_size","Price_(EUR/kg)"
-"Gilthead seabream","Belgium","Fresh","450 - 650 g",18.69
-"Gilthead seabream","France","Fresh","450 - 650 g",13.99
-"Gilthead seabream","Italy","Fresh","300 - 650 G",18.86
-"Gilthead seabream","Portugal","Fresh","450 - 650 g",9.26
-"Gilthead seabream","Romania","Fresh","1 kg",53.82
-"Gilthead seabream","Spain","Fresh","450 - 650 g",14.23
-"Salmon fillets","Belgium","Fresh","100 - 300 g",30.77
-"Salmon fillets","Denmark","Fresh","1 kg",277.19
-"Salmon fillets","France","Fresh","300 - 600 g",26.29
-"Salmon fillets","Germany","Fresh","1 kg",19.22
-"Salmon fillets","Ireland","Fresh","1 kg",22.78
-"Salmon fillets","Italy","Fresh","200 - 300 g",28.61
-"Salmon fillets","Netherlands","Fresh","300 - 600 g",29.18
-"Salmon fillets","Poland","Fresh","1 kg",111.45
-"Salmon fillets","Portugal","Fresh","200 - 500 g",20.56
-"Salmon fillets","Romania","Fresh","1 kg",87.4
-"Salmon fillets","Spain","Fresh","300 - 600 g",26.71
-"Salmon fillets","Sweden","Fresh","1 kg",351.43
-"Seabass","Belgium","Fresh","300 - 400 g",18.39
-"Seabass","France","Fresh","450 - 600 g",9.74
-"Seabass","Italy","Fresh","300 - 400 g",20.71
-"Seabass","Portugal","Fresh","300 - 500 g",10.48
-"Seabass","Romania","Fresh","1 kg",59.65
-"Seabass","Spain","Fresh","400 - 750 g",10.16
-"Trout, gutted","Poland","Fresh","1 kg",42.84
-"Trout, gutted","Romania","Fresh","1 kg",41.96
+"Product","Country","Category","Product_size","Date","Price_(EUR/kg)"
+"Gilthead seabream","Belgium","Fresh","450 - 650 g",2024-07-31,18.69
+"Gilthead seabream","France","Fresh","450 - 650 g",2024-07-31,13.99
+"Gilthead seabream","Italy","Fresh","300 - 650 G",2024-07-31,18.86
+"Gilthead seabream","Portugal","Fresh","450 - 650 g",2024-07-31,9.26
+"Gilthead seabream","Romania","Fresh","1 kg",2024-07-31,53.82
+"Gilthead seabream","Spain","Fresh","450 - 650 g",2024-07-31,14.23
+"Salmon fillets","Belgium","Fresh","100 - 300 g",2024-07-31,30.77
+"Salmon fillets","Denmark","Fresh","1 kg",2024-07-31,277.19
+"Salmon fillets","France","Fresh","300 - 600 g",2024-07-31,26.29
+"Salmon fillets","Germany","Fresh","1 kg",2024-07-31,19.22
+"Salmon fillets","Ireland","Fresh","1 kg",2024-07-31,22.78
+"Salmon fillets","Italy","Fresh","200 - 300 g",2024-07-31,28.61
+"Salmon fillets","Netherlands","Fresh","300 - 600 g",2024-07-31,29.18
+"Salmon fillets","Poland","Fresh","1 kg",2024-07-31,111.45
+"Salmon fillets","Portugal","Fresh","200 - 500 g",2024-07-31,20.56
+"Salmon fillets","Romania","Fresh","1 kg",2024-07-31,87.4
+"Salmon fillets","Spain","Fresh","300 - 600 g",2024-07-31,26.71
+"Salmon fillets","Sweden","Fresh","1 kg",2024-07-31,351.43
+"Seabass","Belgium","Fresh","300 - 400 g",2024-07-31,18.39
+"Seabass","France","Fresh","450 - 600 g",2024-07-31,9.74
+"Seabass","Italy","Fresh","300 - 400 g",2024-07-31,20.71
+"Seabass","Portugal","Fresh","300 - 500 g",2024-07-31,10.48
+"Seabass","Romania","Fresh","1 kg",2024-07-31,59.65
+"Seabass","Spain","Fresh","400 - 750 g",2024-07-31,10.16
+"Trout, gutted","Poland","Fresh","1 kg",2024-07-31,42.84
+"Trout, gutted","Romania","Fresh","1 kg",2024-07-31,41.96
