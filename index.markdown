@@ -22,7 +22,7 @@ layout: home
 </table>
 
 # trade
-[under construction: a huge map showing trade flows]
+![map_trade_flow.png]({{ site.url }}assets/images/map_trade_flow.png)  
 
 # retail prices
 
