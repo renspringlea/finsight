@@ -36,13 +36,10 @@ layout: home
 </table>
 
 # trade
-trade, for each species:
-a huge graph showing arrows from country to country
-
-
+[under construction: a huge map showing trade flows]
 
 # about
-finsight is an online dashboard that provides access to key industry and economic data relating to fish farming in Europe, presented in a way convenient for fish welfare advocates. Data is automatically retrieved, processed, and updated monthly. All data is from public sources.  
+This page presents, in a format convenient for fish welfare advocates, key industry and economic data relating to fish farming in Europe. Data is automatically retrieved, processed, and updated monthly. All data is from public sources.  
 
 Contact: info {at} animalask {dot} org  
 
