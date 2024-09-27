@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "European seabass",10034.4,"450","1.583","0.26","22,298,667","85,764,103","35,306,222"
 "Gilthead seabream",7461.9,"350","1.667","0.2","21,319,714","106,598,571","35,532,857"
 "Common carp",2446.64,"1000","0.375","0.5","2,446,640","4,893,280","917,490"

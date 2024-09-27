@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Rainbow trout",14680,"4000","1.125","0.19","3,670,000","19,315,789","4,128,750"
 "Rainbow trout",9790,"4000","1.125","0.19","2,447,500","12,881,579","2,753,438"
 "Freshwater siluroids nei",2200,"2000","0.917","0.16","1,100,000","6,875,000","1,008,333"

@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Gilthead seabream",3952,350,1.667,0.2,"11,291,429","56,457,143","18,819,048"
 "European seabass",2622,450,1.583,0.26,"5,826,667","22,410,256","9,225,556"
 "Rainbow trout",1316,4000,1.125,0.19,"329,000","1,731,579","370,125"

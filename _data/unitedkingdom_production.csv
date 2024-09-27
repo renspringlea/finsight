@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Atlantic salmon",169194,"4000","2.25","0.19","42,298,500","222,623,684","95,171,625"
 "Rainbow trout",8326.323,"4000","1.125","0.19","2,081,581","10,955,688","2,341,778"
 "Rainbow trout",5144,"4000","1.125","0.19","1,286,000","6,768,421","1,446,750"

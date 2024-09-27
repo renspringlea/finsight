@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Common carp",4131,"1000","0.375","0.5","4,131,000","8,262,000","1,549,125"
 "Rainbow trout",7938,"4000","1.125","0.19","1,984,500","10,444,737","2,232,562"
 "Whiteleg shrimp",31,"17","0.411","0.17","1,823,529","10,726,644","748,883"

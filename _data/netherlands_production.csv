@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "North African catfish",2400,"500","0.667","0.4","4,800,000","12,000,000","3,200,000"
 "Sturgeons nei",150,"600","0.542","0.27","250,000","925,926","135,417"
 "Turbot",100,"1350","1.583","0.27","74,074","274,348","117,284"

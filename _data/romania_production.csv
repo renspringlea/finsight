@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Common carp",3061.73,"1000","0.375","0.5","3,061,730","6,123,460","1,148,149"
 "Crucian carp",786.17,"375","0.5","0.05","2,096,453","41,929,067","1,048,227"
 "Bighead carp",2252.92,"1125","1.167","0.25","2,002,596","8,010,382","2,336,361"

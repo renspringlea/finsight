@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Whiteleg shrimp",22.424,"17","0.411","0.17","1,319,059","7,759,170","541,708"
 "North African catfish",430.88,"500","0.667","0.4","861,760","2,154,400","574,507"
 "Sea trout",511.11,"700","2","0.26","730,157","2,808,297","1,460,314"
