@@ -1,7 +1,8 @@
 ---
-layout: post	itle: "Bosnia and Herzegovina
----
-# Production (2022)  
+  layout: post
+  title: "Bosnia and Herzegovina"
+  ---
+  # Production (2022)  
 ![time series of individuals slaughtered over time](/assets/images/bosniaandherzegovina_timeseries.png)
 
 
