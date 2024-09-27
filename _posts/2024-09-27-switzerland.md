@@ -1,8 +1,8 @@
 ---
-  layout: post
-  title: "Switzerland"
-  ---
-  # Production (2022)  
+layout: post
+title: "Switzerland"
+---
+# Production (2022)  
 ![time series of individuals slaughtered over time](/assets/images/switzerland_timeseries.png)
 
 

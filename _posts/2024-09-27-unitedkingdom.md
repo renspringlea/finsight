@@ -1,8 +1,8 @@
 ---
-  layout: post
-  title: "United Kingdom"
-  ---
-  # Production (2022)  
+layout: post
+title: "United Kingdom"
+---
+# Production (2022)  
 ![time series of individuals slaughtered over time](/assets/images/unitedkingdom_timeseries.png)
 
 
