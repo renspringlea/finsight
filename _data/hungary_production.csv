@@ -1,12 +1,12 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Common carp",11057.453,1000,0.375,0.5,11057453,22114906,4146544.875
-"Sturgeons nei",123.968,600,0.541666666666667,0.27,206613.333333333,765234.567901235,111915.555555556
-"Grass carp(=White amur)",402.464,4500,2,0.25,89436.4444444444,357745.777777778,178872.888888889
-"Rainbow trout",49.025,4000,1.125,0.19,12256.25,64506.5789473684,13788.28125
-"Hetero-Clarias catfish, hybrid",4557.536,NA,NA,NA,NA,NA,NA
-"Freshwater fishes nei",1672,NA,NA,NA,NA,NA,NA
-"Silver, bighead carps nei",841.574,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",197.779,NA,NA,NA,NA,NA,NA
-"Pike-perch",22.655,NA,NA,NA,NA,NA,NA
-"Northern pike",17.931,NA,NA,NA,NA,NA,NA
-"Tench",5.378,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",11057.453,"1000","0.375","0.5","11,057,453","22,114,906","4,146,545"
+"Sturgeons nei",123.968,"600","0.542","0.27","206,613","765,235","111,916"
+"Grass carp(=White amur)",402.464,"4500","2","0.25","89,436","357,746","178,873"
+"Rainbow trout",49.025,"4000","1.125","0.19","12,256","64,507","13,788"
+"Hetero-Clarias catfish, hybrid",4557.536,"","","","","",""
+"Freshwater fishes nei",1672,"","","","","",""
+"Silver, bighead carps nei",841.574,"","","","","",""
+"Wels(=Som) catfish",197.779,"","","","","",""
+"Pike-perch",22.655,"","","","","",""
+"Northern pike",17.931,"","","","","",""
+"Tench",5.378,"","","","","",""

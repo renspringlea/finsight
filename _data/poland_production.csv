@@ -1,16 +1,16 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Common carp",18000,1000,0.375,0.5,1.8e+07,3.6e+07,6750000
-"Rainbow trout",20000,4000,1.125,0.19,5e+06,26315789.4736842,5625000
-"Sturgeons nei",933,600,0.541666666666667,0.27,1555000,5759259.25925926,842291.666666667
-"Silver carp",625,1000,0.916666666666667,0.25,625000,2500000,572916.666666667
-"North African catfish",200,500,0.666666666666667,0.4,4e+05,1e+06,266666.666666667
-"Cyprinids nei",550,1750,0.583333333333333,0.26,314285.714285714,1208791.20879121,183333.333333333
-"Bighead carp",311,1125,1.16666666666667,0.25,276444.444444444,1105777.77777778,322518.518518519
-"Grass carp(=White amur)",625,4500,2,0.25,138888.888888889,555555.555555556,277777.777777778
-"Nile tilapia",0,600,0.583333333333333,0.35,0,0,0
-"Freshwater fishes nei",3235,NA,NA,NA,NA,NA,NA
-"Salmonoids nei",1200,NA,NA,NA,NA,NA,NA
-"Northern pike",160,NA,NA,NA,NA,NA,NA
-"Tench",160,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",110,NA,NA,NA,NA,NA,NA
-"Euro-American crayfishes nei",1,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",18000,"1000","0.375","0.5","18,000,000","36,000,000","6,750,000"
+"Rainbow trout",20000,"4000","1.125","0.19","5,000,000","26,315,789","5,625,000"
+"Sturgeons nei",933,"600","0.542","0.27","1,555,000","5,759,259","842,292"
+"Silver carp",625,"1000","0.917","0.25","625,000","2,500,000","572,917"
+"North African catfish",200,"500","0.667","0.4","400,000","1,000,000","266,667"
+"Cyprinids nei",550,"1750","0.583","0.26","314,286","1,208,791","183,333"
+"Bighead carp",311,"1125","1.167","0.25","276,444","1,105,778","322,519"
+"Grass carp(=White amur)",625,"4500","2","0.25","138,889","555,556","277,778"
+"Nile tilapia",0,"600","0.583","0.35","0","0","0"
+"Freshwater fishes nei",3235,"","","","","",""
+"Salmonoids nei",1200,"","","","","",""
+"Northern pike",160,"","","","","",""
+"Tench",160,"","","","","",""
+"Wels(=Som) catfish",110,"","","","","",""
+"Euro-American crayfishes nei",1,"","","","","",""

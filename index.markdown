@@ -57,6 +57,11 @@ Contact: info {at} animalask {dot} org
 Made with ❤︎ by Ren Ryba (they/them) (Animal Ask).  
 I live and work on the unceded land of the Kaurna people.  
 
+The content on this page is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
+
+Production data is processed and analysed based on original data from [FAO](https://www.fao.org/fishery/en/collection/aquaculture?lang=en) (used under license [CC BY-NC-SA 3.0 IGO](https://creativecommons.org/licenses/by-nc-sa/3.0/igo/deed.en)).
+EU trade and price data is processed and analysed based on original data  from [EUMOFA](https://eumofa.eu/bulk-download) (used under license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+
 ~~~
 |\   \\\\__     o
 | \_/    o \    o

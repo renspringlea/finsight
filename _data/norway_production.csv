@@ -1,9 +1,9 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Atlantic salmon",1551971.588,4000,2.25,0.19,387992897,2042067878.94737,872984018.25
-"Rainbow trout",84927.93,4000,1.125,0.19,21231982.5,111747276.315789,23885980.3125
-"Sea trout",391.72,700,2,0.26,559600,2152307.69230769,1119200
-"Atlantic cod",5115.52,NA,NA,NA,NA,NA,NA
-"Atlantic halibut",2290.57,NA,NA,NA,NA,NA,NA
-"Arctic char",638.32,NA,NA,NA,NA,NA,NA
-"Finfishes nei",265.61,NA,NA,NA,NA,NA,NA
-"Marine crustaceans nei",0.77,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Atlantic salmon",1551971.588,"4000","2.25","0.19","387,992,897","2,042,067,879","872,984,018"
+"Rainbow trout",84927.93,"4000","1.125","0.19","21,231,982","111,747,276","23,885,980"
+"Sea trout",391.72,"700","2","0.26","559,600","2,152,308","1,119,200"
+"Atlantic cod",5115.52,"","","","","",""
+"Atlantic halibut",2290.57,"","","","","",""
+"Arctic char",638.32,"","","","","",""
+"Finfishes nei",265.61,"","","","","",""
+"Marine crustaceans nei",0.77,"","","","","",""
