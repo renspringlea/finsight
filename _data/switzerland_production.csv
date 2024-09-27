@@ -1,0 +1,13 @@
+"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Whiteleg shrimp",30,17,0.410677618069815,0.17,1764705.88235294,10380622.8373702,724725.208358497
+"Rainbow trout",1336,4000,1.125,0.19,334000,1757894.73684211,375750
+"Sturgeons nei",50,600,0.541666666666667,0.27,83333.3333333333,308641.975308642,45138.8888888889
+"Sea trout",30,700,2,0.26,42857.1428571429,164835.164835165,85714.2857142857
+"Atlantic salmon",160,4000,2.25,0.19,40000,210526.315789474,90000
+"Barramundi(=Giant seaperch)",1,800,0.5,0.3,1250,4166.66666666667,625
+"European perch",470,NA,NA,NA,NA,NA,NA
+"Freshwater fishes nei",300,NA,NA,NA,NA,NA,NA
+"Chars nei",60,NA,NA,NA,NA,NA,NA
+"Pike-perch",60,NA,NA,NA,NA,NA,NA
+"Masu(=Cherry) salmon",2,NA,NA,NA,NA,NA,NA
+"Grayling",1,NA,NA,NA,NA,NA,NA

@@ -1,0 +1,9 @@
+"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Atlantic salmon",169194,4000,2.25,0.19,42298500,222623684.210526,95171625
+"Rainbow trout",8326.323,4000,1.125,0.19,2081580.75,10955688.1578947,2341778.34375
+"Rainbow trout",5144,4000,1.125,0.19,1286000,6768421.05263158,1446750
+"Sea trout",220.142,700,2,0.26,314488.571428571,1209571.42857143,628977.142857143
+"Common carp",277.741,1000,0.375,0.5,277741,555482,104152.875
+"Salmonids nei",630,4000,2.25,0.19,157500,828947.368421053,354375
+"Marine fishes nei",169,NA,NA,NA,NA,NA,NA
+"Freshwater fishes nei",43.01,NA,NA,NA,NA,NA,NA
