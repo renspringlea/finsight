@@ -1,16 +1,16 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Common carp",4131,1000,0.375,0.5,4131000,8262000,1549125
-"Rainbow trout",7938,4000,1.125,0.19,1984500,10444736.8421053,2232562.5
-"Whiteleg shrimp",31,17,0.410677618069815,0.17,1823529.41176471,10726643.5986159,748882.715303781
-"North African catfish",493,500,0.666666666666667,0.4,986000,2465000,657333.333333333
-"Sea trout",620,700,2,0.26,885714.285714286,3406593.40659341,1771428.57142857
-"Sturgeons nei",131,600,0.541666666666667,0.27,218333.333333333,808641.975308642,118263.888888889
-"Tilapias nei",1,450,0.583333333333333,0.15,2222.22222222222,14814.8148148148,1296.2962962963
-"Chars nei",2128,NA,NA,NA,NA,NA,NA
-"European eel",1158,NA,NA,NA,NA,NA,NA
-"Freshwater fishes nei",470,NA,NA,NA,NA,NA,NA
-"Brook trout",395,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",136,NA,NA,NA,NA,NA,NA
-"Pike-perch",100,NA,NA,NA,NA,NA,NA
-"Tench",89,NA,NA,NA,NA,NA,NA
-"Northern pike",43,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",4131,"1000","0.375","0.5","4,131,000","8,262,000","1,549,125"
+"Rainbow trout",7938,"4000","1.125","0.19","1,984,500","10,444,737","2,232,562"
+"Whiteleg shrimp",31,"17","0.411","0.17","1,823,529","10,726,644","748,883"
+"North African catfish",493,"500","0.667","0.4","986,000","2,465,000","657,333"
+"Sea trout",620,"700","2","0.26","885,714","3,406,593","1,771,429"
+"Sturgeons nei",131,"600","0.542","0.27","218,333","808,642","118,264"
+"Tilapias nei",1,"450","0.583","0.15","2,222","14,815","1,296"
+"Chars nei",2128,"","","","","",""
+"European eel",1158,"","","","","",""
+"Freshwater fishes nei",470,"","","","","",""
+"Brook trout",395,"","","","","",""
+"Wels(=Som) catfish",136,"","","","","",""
+"Pike-perch",100,"","","","","",""
+"Tench",89,"","","","","",""
+"Northern pike",43,"","","","","",""

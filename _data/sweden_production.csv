@@ -1,4 +1,4 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Rainbow trout",7550,4000,1.125,0.19,1887500,9934210.52631579,2123437.5
-"Freshwater fishes nei",1431,NA,NA,NA,NA,NA,NA
-"Euro-American crayfishes nei",0.2,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Rainbow trout",7550,"4000","1.125","0.19","1,887,500","9,934,211","2,123,438"
+"Freshwater fishes nei",1431,"","","","","",""
+"Euro-American crayfishes nei",0.2,"","","","","",""

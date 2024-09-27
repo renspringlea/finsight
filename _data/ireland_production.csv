@@ -1,4 +1,4 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Atlantic salmon",11916,4000,2.25,0.19,2979000,15678947.3684211,6702750
-"Rainbow trout",398,4000,1.125,0.19,99500,523684.210526316,111937.5
-"Aquatic invertebrates nei",0,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Atlantic salmon",11916,"4000","2.25","0.19","2,979,000","15,678,947","6,702,750"
+"Rainbow trout",398,"4000","1.125","0.19","99,500","523,684","111,938"
+"Aquatic invertebrates nei",0,"","","","","",""

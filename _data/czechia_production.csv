@@ -1,15 +1,15 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Common carp",16437,1000,0.375,0.5,16437000,32874000,6163875
-"North African catfish",250,500,0.666666666666667,0.4,5e+05,1250000,333333.333333333
-"Bighead carp",148,1125,1.16666666666667,0.25,131555.555555556,526222.222222222,153481.481481481
-"Grass carp(=White amur)",548,4500,2,0.25,121777.777777778,487111.111111111,243555.555555556
-"Rainbow trout",438,4000,1.125,0.19,109500,576315.789473684,123187.5
-"Silver carp",61,1000,0.916666666666667,0.25,61000,244000,55916.6666666667
-"Freshwater fishes nei",690,NA,NA,NA,NA,NA,NA
-"Brook trout",257,NA,NA,NA,NA,NA,NA
-"Tench",150,NA,NA,NA,NA,NA,NA
-"Northern pike",116,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",78,NA,NA,NA,NA,NA,NA
-"Pike-perch",57,NA,NA,NA,NA,NA,NA
-"European perch",24,NA,NA,NA,NA,NA,NA
-"European whitefish",5,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",16437,"1000","0.375","0.5","16,437,000","32,874,000","6,163,875"
+"North African catfish",250,"500","0.667","0.4","500,000","1,250,000","333,333"
+"Bighead carp",148,"1125","1.167","0.25","131,556","526,222","153,481"
+"Grass carp(=White amur)",548,"4500","2","0.25","121,778","487,111","243,556"
+"Rainbow trout",438,"4000","1.125","0.19","109,500","576,316","123,188"
+"Silver carp",61,"1000","0.917","0.25","61,000","244,000","55,917"
+"Freshwater fishes nei",690,"","","","","",""
+"Brook trout",257,"","","","","",""
+"Tench",150,"","","","","",""
+"Northern pike",116,"","","","","",""
+"Wels(=Som) catfish",78,"","","","","",""
+"Pike-perch",57,"","","","","",""
+"European perch",24,"","","","","",""
+"European whitefish",5,"","","","","",""

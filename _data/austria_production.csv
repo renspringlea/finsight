@@ -1,19 +1,19 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Whiteleg shrimp",22.424,17,0.410677618069815,0.17,1319058.82352941,7759169.55017301,541707.935741032
-"North African catfish",430.88,500,0.666666666666667,0.4,861760,2154400,574506.666666667
-"Sea trout",511.11,700,2,0.26,730157.142857143,2808296.7032967,1460314.28571429
-"Common carp",559.82,1000,0.375,0.5,559820,1119640,209932.5
-"Rainbow trout",1691.3,4000,1.125,0.19,422825,2225394.73684211,475678.125
-"Sturgeons nei",15.271,600,0.541666666666667,0.27,25451.6666666667,94265.4320987654,13786.3194444444
-"Silver carp",10.078,1000,0.916666666666667,0.25,10078,40312,9238.16666666667
-"Grass carp(=White amur)",32.936,4500,2,0.25,7319.11111111111,29276.4444444444,14638.2222222222
-"Brook trout",660.94,NA,NA,NA,NA,NA,NA
-"Salmonoids nei",414.02,NA,NA,NA,NA,NA,NA
-"Arctic char",280.16,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",39.858,NA,NA,NA,NA,NA,NA
-"Pike-perch",19.951,NA,NA,NA,NA,NA,NA
-"Freshwater fishes nei",14.339,NA,NA,NA,NA,NA,NA
-"Huchen",5.584,NA,NA,NA,NA,NA,NA
-"Northern pike",4.849,NA,NA,NA,NA,NA,NA
-"Tench",4.687,NA,NA,NA,NA,NA,NA
-"Euro-American crayfishes nei",0.511,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Whiteleg shrimp",22.424,"17","0.411","0.17","1,319,059","7,759,170","541,708"
+"North African catfish",430.88,"500","0.667","0.4","861,760","2,154,400","574,507"
+"Sea trout",511.11,"700","2","0.26","730,157","2,808,297","1,460,314"
+"Common carp",559.82,"1000","0.375","0.5","559,820","1,119,640","209,932"
+"Rainbow trout",1691.3,"4000","1.125","0.19","422,825","2,225,395","475,678"
+"Sturgeons nei",15.271,"600","0.542","0.27","25,452","94,265","13,786"
+"Silver carp",10.078,"1000","0.917","0.25","10,078","40,312","9,238"
+"Grass carp(=White amur)",32.936,"4500","2","0.25","7,319","29,276","14,638"
+"Brook trout",660.94,"","","","","",""
+"Salmonoids nei",414.02,"","","","","",""
+"Arctic char",280.16,"","","","","",""
+"Wels(=Som) catfish",39.858,"","","","","",""
+"Pike-perch",19.951,"","","","","",""
+"Freshwater fishes nei",14.339,"","","","","",""
+"Huchen",5.584,"","","","","",""
+"Northern pike",4.849,"","","","","",""
+"Tench",4.687,"","","","","",""
+"Euro-American crayfishes nei",0.511,"","","","","",""

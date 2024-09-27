@@ -1,6 +1,6 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Atlantic salmon",44934,4000,2.25,0.19,11233500,59123684.2105263,25275375
-"Rainbow trout",1131,4000,1.125,0.19,282750,1488157.89473684,318093.75
-"Arctic char",4931,NA,NA,NA,NA,NA,NA
-"Senegalese sole",352,NA,NA,NA,NA,NA,NA
-"Atlantic halibut",2,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Atlantic salmon",44934,"4000","2.25","0.19","11,233,500","59,123,684","25,275,375"
+"Rainbow trout",1131,"4000","1.125","0.19","282,750","1,488,158","318,094"
+"Arctic char",4931,"","","","","",""
+"Senegalese sole",352,"","","","","",""
+"Atlantic halibut",2,"","","","","",""

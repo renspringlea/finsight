@@ -1,14 +1,14 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Rainbow trout",14680,4000,1.125,0.19,3670000,19315789.4736842,4128750
-"Rainbow trout",9790,4000,1.125,0.19,2447500,12881578.9473684,2753437.5
-"Freshwater siluroids nei",2200,2000,0.916666666666667,0.16,1100000,6875000,1008333.33333333
-"Atlantic salmon",1165,4000,2.25,0.19,291250,1532894.73684211,655312.5
-"Sea trout",51,700,2,0.26,72857.1428571429,280219.78021978,145714.285714286
-"Sturgeons nei",1.7,600,0.541666666666667,0.27,2833.33333333333,10493.8271604938,1534.72222222222
-"European eel",412,NA,NA,NA,NA,NA,NA
-"Yellowtail amberjack",377.4,NA,NA,NA,NA,NA,NA
-"Pike-perch",339,NA,NA,NA,NA,NA,NA
-"Chars nei",215,NA,NA,NA,NA,NA,NA
-"Striped bass, hybrid",80,NA,NA,NA,NA,NA,NA
-"European eel",38.6,NA,NA,NA,NA,NA,NA
-"Brook trout",16,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Rainbow trout",14680,"4000","1.125","0.19","3,670,000","19,315,789","4,128,750"
+"Rainbow trout",9790,"4000","1.125","0.19","2,447,500","12,881,579","2,753,438"
+"Freshwater siluroids nei",2200,"2000","0.917","0.16","1,100,000","6,875,000","1,008,333"
+"Atlantic salmon",1165,"4000","2.25","0.19","291,250","1,532,895","655,312"
+"Sea trout",51,"700","2","0.26","72,857","280,220","145,714"
+"Sturgeons nei",1.7,"600","0.542","0.27","2,833","10,494","1,535"
+"European eel",412,"","","","","",""
+"Yellowtail amberjack",377.4,"","","","","",""
+"Pike-perch",339,"","","","","",""
+"Chars nei",215,"","","","","",""
+"Striped bass, hybrid",80,"","","","","",""
+"European eel",38.6,"","","","","",""
+"Brook trout",16,"","","","","",""

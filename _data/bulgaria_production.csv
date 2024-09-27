@@ -1,30 +1,30 @@
-"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
-"Common carp",2608.17,1000,0.375,0.5,2608170,5216340,978063.75
-"Whiteleg shrimp",22.51,17,0.410677618069815,0.17,1324117.64705882,7788927.33564014,543785.481338326
-"Rainbow trout",3603.99,4000,1.125,0.19,900997.5,4742092.10526316,1013622.1875
-"North African catfish",306.52,500,0.666666666666667,0.4,613040,1532600,408693.333333333
-"Bighead carp",642.61,1125,1.16666666666667,0.25,571208.888888889,2284835.55555556,666410.37037037
-"Silver carp",240.23,1000,0.916666666666667,0.25,240230,960920,220210.833333333
-"Sturgeons nei",25.41,600,0.541666666666667,0.27,42350,156851.851851852,22939.5833333333
-"Grass carp(=White amur)",121.56,4500,2,0.25,27013.3333333333,108053.333333333,54026.6666666667
-"Sea trout",14.7,700,2,0.26,21000,80769.2307692308,42000
-"Channel catfish",7.3,510,1.5,0.27,14313.7254901961,53013.7981118373,21470.5882352941
-"Cyprinids nei",2.53,1750,0.583333333333333,0.26,1445.71428571429,5560.43956043956,843.333333333333
-"Crucian carp",0.05,375,0.5,0.05,133.333333333333,2666.66666666667,66.6666666666667
-"Black carp",0.04,2000,0.625,0.25,20,80,12.5
-"Goldfish",222.92,NA,NA,NA,NA,NA,NA
-"Danube sturgeon(=Osetr)",127.33,NA,NA,NA,NA,NA,NA
-"Wels(=Som) catfish",70.85,NA,NA,NA,NA,NA,NA
-"Siberian sturgeon",29.37,NA,NA,NA,NA,NA,NA
-"Pike-perch",18.17,NA,NA,NA,NA,NA,NA
-"Beluga",7.83,NA,NA,NA,NA,NA,NA
-"Mississippi paddlefish",6.26,NA,NA,NA,NA,NA,NA
-"Northern pike",3.76,NA,NA,NA,NA,NA,NA
-"Bleak",1.41,NA,NA,NA,NA,NA,NA
-"Danube crayfish",0.91,NA,NA,NA,NA,NA,NA
-"Brook trout",0.6,NA,NA,NA,NA,NA,NA
-"Danube bleak",0.25,NA,NA,NA,NA,NA,NA
-"Sterlet sturgeon",0.24,NA,NA,NA,NA,NA,NA
-"Noble crayfish",0.2,NA,NA,NA,NA,NA,NA
-"Rudd",0.12,NA,NA,NA,NA,NA,NA
-"European perch",0.07,NA,NA,NA,NA,NA,NA
+"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",2608.17,"1000","0.375","0.5","2,608,170","5,216,340","978,064"
+"Whiteleg shrimp",22.51,"17","0.411","0.17","1,324,118","7,788,927","543,785"
+"Rainbow trout",3603.99,"4000","1.125","0.19","900,998","4,742,092","1,013,622"
+"North African catfish",306.52,"500","0.667","0.4","613,040","1,532,600","408,693"
+"Bighead carp",642.61,"1125","1.167","0.25","571,209","2,284,836","666,410"
+"Silver carp",240.23,"1000","0.917","0.25","240,230","960,920","220,211"
+"Sturgeons nei",25.41,"600","0.542","0.27","42,350","156,852","22,940"
+"Grass carp(=White amur)",121.56,"4500","2","0.25","27,013","108,053","54,027"
+"Sea trout",14.7,"700","2","0.26","21,000","80,769","42,000"
+"Channel catfish",7.3,"510","1.5","0.27","14,314","53,014","21,471"
+"Cyprinids nei",2.53,"1750","0.583","0.26","1,446","5,560","843"
+"Crucian carp",0.05,"375","0.5","0.05","133","2,667","67"
+"Black carp",0.04,"2000","0.625","0.25","20","80","12"
+"Goldfish",222.92,"","","","","",""
+"Danube sturgeon(=Osetr)",127.33,"","","","","",""
+"Wels(=Som) catfish",70.85,"","","","","",""
+"Siberian sturgeon",29.37,"","","","","",""
+"Pike-perch",18.17,"","","","","",""
+"Beluga",7.83,"","","","","",""
+"Mississippi paddlefish",6.26,"","","","","",""
+"Northern pike",3.76,"","","","","",""
+"Bleak",1.41,"","","","","",""
+"Danube crayfish",0.91,"","","","","",""
+"Brook trout",0.6,"","","","","",""
+"Danube bleak",0.25,"","","","","",""
+"Sterlet sturgeon",0.24,"","","","","",""
+"Noble crayfish",0.2,"","","","","",""
+"Rudd",0.12,"","","","","",""
+"European perch",0.07,"","","","","",""
