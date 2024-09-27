@@ -1,0 +1,16 @@
+"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Common carp",607.9,1000,0.375,0.5,607900,1215800,227962.5
+"North African catfish",57.8,500,0.666666666666667,0.4,115600,289000,77066.6666666667
+"Sturgeons nei",45.8,600,0.541666666666667,0.27,76333.3333333333,282716.049382716,41347.2222222222
+"Crucian carp",12.6,375,0.5,0.05,33600,672000,16800
+"Rainbow trout",27.9,4000,1.125,0.19,6975,36710.5263157895,7846.875
+"Tilapias nei",2.1,450,0.583333333333333,0.15,4666.66666666667,31111.1111111111,2722.22222222222
+"Silver carp",0.33,1000,0.916666666666667,0.25,330,1320,302.5
+"Grass carp(=White amur)",0.37,4500,2,0.25,82.2222222222222,328.888888888889,164.444444444444
+"Arctic char",86.66,NA,NA,NA,NA,NA,NA
+"Freshwater fishes nei",16.7,NA,NA,NA,NA,NA,NA
+"Pike-perch",6.24,NA,NA,NA,NA,NA,NA
+"Tench",3.9,NA,NA,NA,NA,NA,NA
+"Northern pike",1.23,NA,NA,NA,NA,NA,NA
+"Wels(=Som) catfish",0.23,NA,NA,NA,NA,NA,NA
+"European perch",0.15,NA,NA,NA,NA,NA,NA

@@ -1,0 +1,10 @@
+"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Rainbow trout",3338.4,4000,1.125,0.19,834600,4392631.57894737,938925
+"Common carp",349.3,1000,0.375,0.5,349300,698600,130987.5
+"Gilthead seabream",104,350,1.66666666666667,0.2,297142.857142857,1485714.28571429,495238.095238095
+"Sea trout",48.5,700,2,0.26,69285.7142857143,266483.516483516,138571.428571429
+"European seabass",5.7,450,1.58333333333333,0.26,12666.6666666667,48717.9487179487,20055.5555555556
+"Brook trout",48.5,NA,NA,NA,NA,NA,NA
+"Freshwater fishes nei",15.6,NA,NA,NA,NA,NA,NA
+"Wels(=Som) catfish",5.7,NA,NA,NA,NA,NA,NA
+"Pike-perch",4.2,NA,NA,NA,NA,NA,NA

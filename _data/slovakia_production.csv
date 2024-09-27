@@ -1,0 +1,12 @@
+"Species","VALUE","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"North African catfish",850,500,0.666666666666667,0.4,1700000,4250000,1133333.33333333
+"Common carp",600,1000,0.375,0.5,6e+05,1200000,225000
+"Rainbow trout",1050,4000,1.125,0.19,262500,1381578.94736842,295312.5
+"Silver carp",10,1000,0.916666666666667,0.25,10000,40000,9166.66666666667
+"Sea trout",5,700,2,0.26,7142.85714285714,27472.5274725275,14285.7142857143
+"Grass carp(=White amur)",30,4500,2,0.25,6666.66666666667,26666.6666666667,13333.3333333333
+"Goldfish",50,NA,NA,NA,NA,NA,NA
+"Wels(=Som) catfish",8,NA,NA,NA,NA,NA,NA
+"Brook trout",5,NA,NA,NA,NA,NA,NA
+"Northern pike",4,NA,NA,NA,NA,NA,NA
+"Pike-perch",2,NA,NA,NA,NA,NA,NA
