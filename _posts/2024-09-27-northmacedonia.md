@@ -1,7 +1,8 @@
 ---
-layout: post	itle: "North Macedonia
----
-# Production (2022)  
+  layout: post
+  title: "North Macedonia"
+  ---
+  # Production (2022)  
 ![time series of individuals slaughtered over time](/assets/images/northmacedonia_timeseries.png)
 
 
