@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Common carp",16437,"1000","0.375","0.5","16,437,000","32,874,000","6,163,875"
 "North African catfish",250,"500","0.667","0.4","500,000","1,250,000","333,333"
 "Bighead carp",148,"1125","1.167","0.25","131,556","526,222","153,481"

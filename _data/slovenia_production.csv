@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Rainbow trout",732.6,"4000","1.125","0.19","183,150","963,947","206,044"
 "North African catfish",76.3,"500","0.667","0.4","152,600","381,500","101,733"
 "Common carp",123.6,"1000","0.375","0.5","123,600","247,200","46,350"

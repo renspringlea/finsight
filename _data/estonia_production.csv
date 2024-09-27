@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Rainbow trout",382.514,"4000","1.125","0.19","95,628","503,308","107,582"
 "Rainbow trout",295,"4000","1.125","0.19","73,750","388,158","82,969"
 "Sturgeons nei",13.314,"600","0.542","0.27","22,190","82,185","12,020"

@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Common carp",11057.453,"1000","0.375","0.5","11,057,453","22,114,906","4,146,545"
 "Sturgeons nei",123.968,"600","0.542","0.27","206,613","765,235","111,916"
 "Grass carp(=White amur)",402.464,"4500","2","0.25","89,436","357,746","178,873"

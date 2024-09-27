@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Rainbow trout",1533.8,"4000","1.125","0.19","383,450","2,018,158","431,381"
 "Common carp",217.2,"1000","0.375","0.5","217,200","434,400","81,450"
 "Sea trout",54.6,"700","2","0.26","78,000","300,000","156,000"

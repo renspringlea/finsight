@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Common carp",18000,"1000","0.375","0.5","18,000,000","36,000,000","6,750,000"
 "Rainbow trout",20000,"4000","1.125","0.19","5,000,000","26,315,789","5,625,000"
 "Sturgeons nei",933,"600","0.542","0.27","1,555,000","5,759,259","842,292"

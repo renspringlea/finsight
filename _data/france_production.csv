@@ -1,4 +1,4 @@
-"Species","Production (t)","Harvest_weight_g","Harvest_age_years","Mortality_rate","Individuals_slaughtered","Individuals_hatched","Individuals_inventory"
+"Species","Production (t)","Harvest weight g","Harvest age years","Mortality rate","Individuals slaughtered","Individuals hatched","Individuals inventory"
 "Rainbow trout",33081.683,"4000","1.125","0.19","8,270,421","43,528,530","9,304,223"
 "Kuruma prawn",55.898,"21","0.411","0.29","2,661,810","9,178,654","1,093,146"
 "European seabass",1079.772,"450","1.583","0.26","2,399,493","9,228,821","3,799,198"
