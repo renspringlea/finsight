@@ -61,6 +61,7 @@ The content on this page is licensed under [CC BY-NC-SA 4.0](https://creativecom
 
 Production data is processed and analysed based on original data from [FAO](https://www.fao.org/fishery/en/collection/aquaculture?lang=en) (used under license [CC BY-NC-SA 3.0 IGO](https://creativecommons.org/licenses/by-nc-sa/3.0/igo/deed.en)).
 EU trade and price data is processed and analysed based on original data  from [EUMOFA](https://eumofa.eu/bulk-download) (used under license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+Biological parameters from Open Phil (finfish) and Rethink Priorities (shrimp). (Note that these are placeholders while this website is under construction. I will shortly replace biological parameters with new parameters from my own literature review.)
 
 ~~~
 |\   \\\\__     o
