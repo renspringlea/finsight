@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<header>
+    <h1><a rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+  </header>
+  <main aria-label="Content" itemscope itemtype="https://schema.org/Blog">
+{{ content }}
+
+    {%- if site.posts.size > 0 -%}
+      {%- if page.list_title %}
+    <h2>{{ page.list_title | smartify }}</h2>
+      {%- endif -%}
+      {%- assign date_format = site.theme_settings.date_format | default: "%Y-%m-%d" %}
+
+      <div class="row">
+        <div class="column">
+          {%- for post in site.categories.col1 %}
+          <span itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
+          </span>
+          {%- endfor %}
+        </div>
+        <div class="column">
+          {%- for post in site.categories.col2 %}
+          <span itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
+          </span>
+          {%- endfor %}
+        </div>
+        <div class="column">
+          {%- for post in site.categories.col3 %}
+          <span itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
+          </span>
+          {%- endfor %}
+        </div>
+      </div>
+
+
+
+
+
+    {%- endif %}
+  </main>

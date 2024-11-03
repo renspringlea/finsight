@@ -1,53 +1,42 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+## Remove URL for Github Pages
+#url: https://jekyll-theme-nix.michaelnordmeyer.com
+title: Finsight
+author:
+  name: Ren Ryba
+  uri: animalask.org
+description: ""
 
-title: finsight
-email: info@animalask.org
-description: >- # this means to ignore newlines until "baseurl:"
-  data for european fish welfare advocates
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://renspringlea.github.io/finsight/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username:
-github_username:
-
-# Build settings
-theme: jekyll-theme-nix
 plugins:
-  - jekyll-feed
+  - jekyll-include-cache
+  # - jekyll-redirect-from
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+## Jekyll build settings
+exclude: [jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
+ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
+kramdown:
+  show_warnings: true
+  syntax_highlighter_opts:
+    disable: true
+liquid:
+  # Configure Liquid’s parser
+  error_mode: strict # default: warn
+  # Configure Liquid’s renderer
+  strict_filters: true # default: false
+  # strict_variables: true # default: false
+sass:
+  style: compressed
+strict_front_matter: true # default: false
+timezone: Europe/Berlin # default: local timezone
+# remote_theme: michaelnordmeyer/jekyll-theme-nix
+# theme: jekyll-theme-nix
+
+## Custom theme settings to not overwrite anything from Jekyll or plugins
+lang: en-US # default: en (is not by Jekyll, but used by many other plugins)
+theme_settings:
+  # date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
+  favicon: /icon.webp # optional, needs to be 180x180
+  favicon_dark: /icon-dark.webp # optional, needs to be 180x180
+  favicon_media_type: image/webp # mandatory, if favicon is set
+  feed:
+    posts_limit: 999
+  # title_separator: "|" # default: "•"
