@@ -9,7 +9,7 @@ layout: default
       <header>
         <h1 itemprop="headline">{{ page.title | smartify }}</h1>
         {%- assign date_format = site.theme_settings.date_format | default: "%Y-%m-%d" %}
-        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
+        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">Last updated {{ page.date | date: date_format }}</time>
       </header>
       <div itemprop="articleBody">
 {{ content }}

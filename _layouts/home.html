@@ -15,21 +15,24 @@ layout: default
 
       <div class="row">
         <div class="column">
-          {%- for post in site.categories.col1 %}
+          {% assign sortedPosts1 = site.categories.col1 | sort: 'title' %}
+          {% assign sortedPosts2 = site.categories.col2 | sort: 'title' %}
+          {% assign sortedPosts3 = site.categories.col3 | sort: 'title' %}
+          {%- for post in sortedPosts1 %}
           <span itemscope itemtype="https://schema.org/BlogPosting">
             <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
           </span>
           {%- endfor %}
         </div>
         <div class="column">
-          {%- for post in site.categories.col2 %}
+          {%- for post in sortedPosts2 %}
           <span itemscope itemtype="https://schema.org/BlogPosting">
             <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
           </span>
           {%- endfor %}
         </div>
         <div class="column">
-          {%- for post in site.categories.col3 %}
+          {%- for post in sortedPosts3 %}
           <span itemscope itemtype="https://schema.org/BlogPosting">
             <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title}}</a><br />
           </span>
