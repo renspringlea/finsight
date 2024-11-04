@@ -5,7 +5,7 @@
 folder_data <- ("~/finsight/data/")
 
 ### Get the current year ###
-this_year <- as.numeric(substr(Sys.Date(),1,4))
+this_year <- 2025#as.numeric(substr(Sys.Date(),1,4))
 
 ### Define URLs and filenames for downloading data ###
 # Set up an empty data frame that we will store URLs and filenames in
@@ -90,6 +90,25 @@ system_commands <- paste0("curl -X GET '",
 for (i in c(1:length(system_commands))){
   system(system_commands[i])
 }
+
+# Delete any files that did not exist
+# My motivation here is that shortly after the turn of a new year
+# (e.g. Jan 2025), "this year" will be 2025 but 2025 data may not yet
+# have been produced by the websites we are using as data sources
+# We begin the loop at row 3 because the first two rows correspond to
+# data sources with a single URL, not a different URL for each year
+for (i in c(3:nrow(df_url_filename))){
+  file_tmp <- paste0(folder_data,df_url_filename[i,"filename"])
+  check_tmp <- is.na(read.csv(file_tmp,sep=";")[2,1])
+    if(check_tmp){
+    print(paste0("Removing file: ",file_tmp))
+    file.remove(file_tmp)
+  }
+  if(!check_tmp){
+    print(paste0("Keeping file: ",file_tmp))
+  }
+}
+
 
 ### Unzip any compressed files ###
 # Identify zip files by file extensions

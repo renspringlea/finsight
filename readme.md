@@ -1,4 +1,4 @@
-Finsight by Ren Ryba (Animal Ask), 2024 ([Contact](https://animalask.org/contact)  
+Finsight by Ren Ryba (Animal Ask), 2024 ([Contact](https://animalask.org/contact))  
 
 The code in this folder automatically produces a website ([finsight.fish](https://finsight.fish)) full of great insights about European farmed fish for use by fish welfare advocates, using publicly available data. The data is downloaded and analysed on my personal machine using R, pushed to Github, then built as a Jekyll webpage. This process is automatically repeated monthly, so the website is updated each month.  
 
@@ -13,9 +13,9 @@ Some key files are as follows. The first two are R scripts and the latter two ar
 - ~/finsight/code_website.sh runs all R scripts and pushes everything to Github.
 - ~/finsight/website.sh just pushes to Github (doesn't run the R scripts; useful for testing etc because the first R script takes a while to download all the data).  
 
-The first R script saves files to ~/finsight/data, which is *ignored* by Git (and hence invisible to you) because there is no need to push all these large original data files to the repository.  
+The first R script saves files to ~/finsight/data, which is *ignored* by Git (and hence invisible to you) because there is no need to push all these large original data files to the repository. (This folder is different to ~/finsight/_data, which is a totally separate folder used for storing some goodies for the website.)  
 
-Biological parameters, referred to by the second R script, are stored in ~/finsight/parameters. The remainder of the repo (~/finsight/) contains all the pieces needed to automatically build the Jekyll website.
+Biological parameters, referred to by the second R script, are stored in ~/finsight/parameters. The remainder of the finsight folder contains all the pieces needed to automatically build the Jekyll website.
 
 If you want to automate things so that the data is downloaded, analysed, and built automatically, put the following into your crontab (e.g. using cron on Linux):  
 @monthly ~/finsight/code_website.sh  
