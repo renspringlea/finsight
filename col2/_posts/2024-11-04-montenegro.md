@@ -4,7 +4,7 @@ title: "Montenegro"
 permalink: "/montenegro/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](/assets/images/montenegro_timeseries.png)
+![time series of individuals slaughtered over time](~/finsight/assets/images/montenegro_timeseries.png)
 
 
   <table>
