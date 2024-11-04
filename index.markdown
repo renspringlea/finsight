@@ -7,7 +7,7 @@ This website presents, in a format convenient for fish welfare advocates, key in
 # Production
 ![map_production.png]({{ site.url }}assets/images/map_production.png)  
 
-<table>
+<table align="center">
   {% for row in site.data.prodtable %}
     {% if forloop.first %}
     <tr>
