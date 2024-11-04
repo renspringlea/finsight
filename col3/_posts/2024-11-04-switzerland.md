@@ -4,7 +4,7 @@ title: "Switzerland"
 permalink: "/switzerland/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](~/finsight/assets/images/switzerland_timeseries.png)
+![time series of individuals slaughtered over time](../assets/images/switzerland_timeseries.png)
 
 
   <table>

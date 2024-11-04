@@ -4,7 +4,7 @@ title: "Netherlands"
 permalink: "/netherlands/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](~/finsight/assets/images/netherlands_timeseries.png)
+![time series of individuals slaughtered over time](../assets/images/netherlands_timeseries.png)
 
 
   <table>

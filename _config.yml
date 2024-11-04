@@ -4,7 +4,7 @@ title: Finsight
 author:
   name: Ren Ryba
   uri: animalask.org
-description: ""
+description: "Data on fish production in Europe for fish welfare advocates"
 
 plugins:
   - jekyll-include-cache

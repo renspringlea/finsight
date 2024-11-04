@@ -4,7 +4,7 @@ title: "Bosnia and Herzegovina"
 permalink: "/bosniaandherzegovina/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](~/finsight/assets/images/bosniaandherzegovina_timeseries.png)
+![time series of individuals slaughtered over time](../assets/images/bosniaandherzegovina_timeseries.png)
 
 
   <table>

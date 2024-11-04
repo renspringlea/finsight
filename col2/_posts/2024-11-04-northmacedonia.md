@@ -4,7 +4,7 @@ title: "North Macedonia"
 permalink: "/northmacedonia/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](~/finsight/assets/images/northmacedonia_timeseries.png)
+![time series of individuals slaughtered over time](../assets/images/northmacedonia_timeseries.png)
 
 
   <table>

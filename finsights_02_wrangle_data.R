@@ -650,7 +650,7 @@ filename_tmp,
   ")  ",
   "\n",
   "![time series of individuals slaughtered over time](",
-  gsub("~/finsights/website","",filepath_tmp_timeseries),
+  gsub("~/finsight/","../",filepath_tmp_timeseries),
   ")",
   "\n\n",
   "

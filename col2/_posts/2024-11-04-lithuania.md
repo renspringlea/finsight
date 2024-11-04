@@ -4,7 +4,7 @@ title: "Lithuania"
 permalink: "/lithuania/"
 ---
 # Production (2022)  
-![time series of individuals slaughtered over time](~/finsight/assets/images/lithuania_timeseries.png)
+![time series of individuals slaughtered over time](../assets/images/lithuania_timeseries.png)
 
 
   <table>
