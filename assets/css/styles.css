@@ -52,7 +52,7 @@ sub, sup { line-height: 0; }
 hr { border: 0; border-top: 1px solid; }
 h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
 body > header > h1 { margin-bottom: 2rem; text-align: center; }
-body > header > h1 > a { text-decoration: none; color: black }
+body > header > h1 > a { text-decoration: none; color: white }
 body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: 2em; font-weight: bold; text-decoration: none; line-height: 1.2; }
 body > header a:visited { color: black; }
 body > main > ul { padding: 0; }
