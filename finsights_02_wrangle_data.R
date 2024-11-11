@@ -581,6 +581,7 @@ for (i in c(1:nrow(production_countries))){
                                                       "Individuals_inventory")]
   
   # Format the columns nicely for tabulation
+  current_production_tmp$VALUE <- round(current_production_tmp$VALUE)
   current_production_tmp$Harvest_age_years <- round(current_production_tmp$Harvest_age_years,3)
   current_production_tmp$Individuals_slaughtered <- comma(current_production_tmp$Individuals_slaughtered)
   current_production_tmp$Individuals_hatched <- comma(current_production_tmp$Individuals_hatched)
@@ -674,7 +675,7 @@ filename_tmp,
   {% endfor %}
 </table>
 <div class='prodtablenotes'>
-Table notes: harvest weight, harvest age, and mortality rate are set by us as biological parameters (see bottom of page for details). Production is then used, with these parameters, to calculate individuals slaughtered, individuals hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any one time.
+Table notes: harvest weight, harvest age, and mortality rate are set by us as biological parameters (see bottom of page for details). Production is then used, with these parameters, to calculate individuals slaughtered, individuals hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any one time. Production weight is rounded to the nearest tonne.
 </div>
 \n\n",
   "# Trade (",
