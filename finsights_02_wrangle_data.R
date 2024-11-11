@@ -488,150 +488,150 @@ do.call(file.remove, list(list.files("~/finsight/col3/_posts", full.names = TRUE
 
 # Loop over all countries that we have specified in the countries CSV
 for (i in c(1:nrow(production_countries))){
-# Get just this country
-fao_allyears_tmp <- fao_allyears[which(fao_allyears$ISO2_Code==production_countries[i,"ISO2_Code"]),]
+  # Get just this country
+  fao_allyears_tmp <- fao_allyears[which(fao_allyears$ISO2_Code==production_countries[i,"ISO2_Code"]),]
 
-# If there is no data, skip this iteration of the loop
-if(nrow(fao_allyears_tmp)==0){next}
+  # If there is no data, skip this iteration of the loop
+  if(nrow(fao_allyears_tmp)==0){next}
 
-# Get the country name
-title_tmp <- production_countries[i,"Country"]
-
-# Get the column (corresponds to the column on the website homepage)
-col_tmp <- production_countries[i,"column"]
-
-# Create a lower-case filename without any spaces
-filename_tmp <- str_to_lower(gsub(" ","",title_tmp))
-
-# Remove the ü in Turkiye (as it causes issues with building the website)
-filename_tmp <- gsub("ü","u",filename_tmp)
-
-# Use this file name to define up-front the file names and paths that we will use for
-# the time series graph
-filepath_tmp_timeseries <- paste0("~/finsight/assets/images/",
-                                  filename_tmp,
-                                  "_timeseries.png")
-# the table of production for the most recent year
-filepath_tmp_productiontable <- paste0("~/finsight/_data/",
-                                       filename_tmp,
-                                       "_production.csv")
-# export and import tables
-filepath_tmp_exporttable <- paste0("~/finsight/_data/",
-                                       filename_tmp,
-                                       "_export.csv")
-filepath_tmp_importtable <- paste0("~/finsight/_data/",
-                                       filename_tmp,
-                                       "_import.csv")
-# and the post (country page) itself
-filepath_tmp_post <- paste0("~/finsight/col",
-                            col_tmp,
-                            "/_posts/",
-                            today_date,
-                            "-",
-                            filename_tmp,
-                            ".md")
-
-# Create the caption (proportion of production that we have mean weights for)
-caption_tmp <- paste0("This graph accounts for ",
-                      100*round(sum(fao_allyears_tmp[!is.na(fao_allyears_tmp$Individuals_slaughtered),"VALUE"])/sum(fao_allyears_tmp$VALUE),3),
-                      " % of production weight.")
-
-# Aggregate into our species category
-agg_fao_allyears_tmp <- aggregate(Individuals_slaughtered~PERIOD+Species_custom,
-                                  FUN=sum,
-                                  data=fao_allyears_tmp)
-g_timeseries_production_tmp <- ggplot(aes(x=PERIOD,y=Individuals_slaughtered,colour=Species_custom),
-                                      data=agg_fao_allyears_tmp) +
-  scale_x_continuous(breaks=seq(min(agg_fao_allyears_tmp$PERIOD),
-                                max(agg_fao_allyears_tmp$PERIOD),
-                                by=1)) +
-  scale_colour_manual(values=fish_palette) +
-  scale_y_continuous(labels = unit_format(unit = "M", scale = 1e-6)) +
-  labs(title=title_tmp,
-       subtitle="Individuals slaughtered",
-       colour=NULL,
-       x=NULL,
-       y=NULL,
-       caption=caption_tmp) +
-  geom_line() +
-  theme(plot.title = element_text(hjust = 0.5),
-        plot.subtitle = element_text(hjust = 0.5),
-        legend.position="bottom",
-        plot.background = element_rect(fill="white",colour="white"),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1,size=6))
-
-# Save to file
-ggsave(filepath_tmp_timeseries,g_timeseries_production_tmp,
-       width=6,height=4)
-
-# table of most recent production, sorted by individuals descending, showing all biological params
-current_production_tmp <- fao_quantity[which(fao_quantity$ISO2_Code==i),]
-
-# Order by individuals then (for ones we didn't calculate individuals for) weight
-current_production_tmp <- current_production_tmp[order(-current_production_tmp$Individuals_slaughtered,
-                                                       -current_production_tmp$VALUE),]
-
-# Get just the columns we want to visualise
-current_production_tmp <- current_production_tmp[,c("Species","VALUE",
-                                                    "Harvest_weight_g",
-                                                    "Harvest_age_years",
-                                                    "Mortality_rate",
-                                                    "Individuals_slaughtered",
-                                                    "Individuals_hatched",
-                                                    "Individuals_inventory")]
-
-# Format the columns nicely for tabulation
-names(current_production_tmp)[2] <- "Production (t)"
-current_production_tmp$Harvest_age_years <- round(current_production_tmp$Harvest_age_years,3)
-current_production_tmp$Individuals_slaughtered <- comma(current_production_tmp$Individuals_slaughtered)
-current_production_tmp$Individuals_hatched <- comma(current_production_tmp$Individuals_hatched)
-current_production_tmp$Individuals_inventory <- comma(current_production_tmp$Individuals_inventory)
-current_production_tmp[is.na(current_production_tmp)] <- ""
-names(current_production_tmp) <- gsub("_"," ",names(current_production_tmp))
-
-# save to file
-write.csv(current_production_tmp,
-          filepath_tmp_productiontable,
-          row.names = F)
-
-# table of exports for the most recent year, sorted by volume descending
-# note that eu_trade was already restricted to the most recent year in the
-# "Trade" section of this R script
-eu_trade_tmp <- eu_trade[which(eu_trade$country=="Italy"),]
-eu_trade_tmp_agg <- aggregate(volume.kg.~flow_type+partner_contry+Species_custom,
-                          FUN=sum,
-                          data=eu_trade_tmp)
-
-# Order by volume
-eu_trade_tmp_agg <- eu_trade_tmp_agg[order(-eu_trade_tmp_agg$volume.kg.),]
-
-# Convert volume from kg to tonnes
-eu_trade_tmp_agg$t <- round(eu_trade_tmp_agg$volume.kg./1000)
-
-# Format numbers with nice commas
-eu_trade_tmp_agg$t <- comma(eu_trade_tmp_agg$t)
-
-# Rename to more attractive names
-names(eu_trade_tmp_agg) <- c("flow_type","Partner Country","Species","kg","Quantity (t)")
-
-# Split into exports and imports (separate tables)
-eu_trade_tmp_agg_exports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Export"),]
-eu_trade_tmp_agg_imports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Import"),]
-
-# Remove the unnecessary columns
-eu_trade_tmp_agg_exports <- eu_trade_tmp_agg_exports[,-c(1,4)]
-eu_trade_tmp_agg_imports <- eu_trade_tmp_agg_imports[,-c(1,4)]
-
-# save to file
-write.csv(eu_trade_tmp_agg_exports,
-          filepath_tmp_exporttable,
-          row.names = F)
-write.csv(eu_trade_tmp_agg_imports,
-          filepath_tmp_importtable,
-          row.names = F)
-
-# time series of all applicable prices
-# to do!
+  # Get the country name
+  title_tmp <- production_countries[i,"Country"]
+  
+  # Get the column (corresponds to the column on the website homepage)
+  col_tmp <- production_countries[i,"column"]
+  
+  # Create a lower-case filename without any spaces
+  filename_tmp <- str_to_lower(gsub(" ","",title_tmp))
+  
+  # Remove the ü in Turkiye (as it causes issues with building the website)
+  filename_tmp <- gsub("ü","u",filename_tmp)
+  
+  # Use this file name to define up-front the file names and paths that we will use for
+  # the time series graph
+  filepath_tmp_timeseries <- paste0("~/finsight/assets/images/",
+                                    filename_tmp,
+                                    "_timeseries.png")
+  # the table of production for the most recent year
+  filepath_tmp_productiontable <- paste0("~/finsight/_data/",
+                                         filename_tmp,
+                                         "_production.csv")
+  # export and import tables
+  filepath_tmp_exporttable <- paste0("~/finsight/_data/",
+                                         filename_tmp,
+                                         "_export.csv")
+  filepath_tmp_importtable <- paste0("~/finsight/_data/",
+                                         filename_tmp,
+                                         "_import.csv")
+  # and the post (country page) itself
+  filepath_tmp_post <- paste0("~/finsight/col",
+                              col_tmp,
+                              "/_posts/",
+                              today_date,
+                              "-",
+                              filename_tmp,
+                              ".md")
+  
+  # Create the caption (proportion of production that we have mean weights for)
+  caption_tmp <- paste0("This graph accounts for ",
+                        100*round(sum(fao_allyears_tmp[!is.na(fao_allyears_tmp$Individuals_slaughtered),"VALUE"])/sum(fao_allyears_tmp$VALUE),3),
+                        " % of production weight.")
+  
+  # Aggregate into our species category
+  agg_fao_allyears_tmp <- aggregate(Individuals_slaughtered~PERIOD+Species_custom,
+                                    FUN=sum,
+                                    data=fao_allyears_tmp)
+  g_timeseries_production_tmp <- ggplot(aes(x=PERIOD,y=Individuals_slaughtered,colour=Species_custom),
+                                        data=agg_fao_allyears_tmp) +
+    scale_x_continuous(breaks=seq(min(agg_fao_allyears_tmp$PERIOD),
+                                  max(agg_fao_allyears_tmp$PERIOD),
+                                  by=1)) +
+    scale_colour_manual(values=fish_palette) +
+    scale_y_continuous(labels = unit_format(unit = "M", scale = 1e-6)) +
+    labs(title=title_tmp,
+         subtitle="Individuals slaughtered",
+         colour=NULL,
+         x=NULL,
+         y=NULL,
+         caption=caption_tmp) +
+    geom_line() +
+    theme(plot.title = element_text(hjust = 0.5),
+          plot.subtitle = element_text(hjust = 0.5),
+          legend.position="bottom",
+          plot.background = element_rect(fill="white",colour="white"),
+          axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1,size=6))
+  
+  # Save to file
+  ggsave(filepath_tmp_timeseries,g_timeseries_production_tmp,
+         width=6,height=4)
+  
+  # table of most recent production, sorted by individuals descending, showing all biological params
+  current_production_tmp <- fao_quantity[which(fao_quantity$ISO2_Code==production_countries[i,"ISO2_Code"]),]
+  
+  # Order by individuals then (for ones we didn't calculate individuals for) weight
+  current_production_tmp <- current_production_tmp[order(-current_production_tmp$Individuals_slaughtered,
+                                                         -current_production_tmp$VALUE),]
+  
+  # Get just the columns we want to visualise
+  current_production_tmp <- current_production_tmp[,c("Species","VALUE",
+                                                      "Harvest_weight_g",
+                                                      "Harvest_age_years",
+                                                      "Mortality_rate",
+                                                      "Individuals_slaughtered",
+                                                      "Individuals_hatched",
+                                                      "Individuals_inventory")]
+  
+  # Format the columns nicely for tabulation
+  names(current_production_tmp)[2] <- "Production (t)"
+  current_production_tmp$Harvest_age_years <- round(current_production_tmp$Harvest_age_years,3)
+  current_production_tmp$Individuals_slaughtered <- comma(current_production_tmp$Individuals_slaughtered)
+  current_production_tmp$Individuals_hatched <- comma(current_production_tmp$Individuals_hatched)
+  current_production_tmp$Individuals_inventory <- comma(current_production_tmp$Individuals_inventory)
+  current_production_tmp[is.na(current_production_tmp)] <- ""
+  names(current_production_tmp) <- gsub("_"," ",names(current_production_tmp))
+  
+  # save to file
+  write.csv(current_production_tmp,
+            filepath_tmp_productiontable,
+            row.names = F)
+  
+  # table of exports for the most recent year, sorted by volume descending
+  # note that eu_trade was already restricted to the most recent year in the
+  # "Trade" section of this R script
+  eu_trade_tmp <- eu_trade[which(eu_trade$country=="Italy"),]
+  eu_trade_tmp_agg <- aggregate(volume.kg.~flow_type+partner_contry+Species_custom,
+                            FUN=sum,
+                            data=eu_trade_tmp)
+  
+  # Order by volume
+  eu_trade_tmp_agg <- eu_trade_tmp_agg[order(-eu_trade_tmp_agg$volume.kg.),]
+  
+  # Convert volume from kg to tonnes
+  eu_trade_tmp_agg$t <- round(eu_trade_tmp_agg$volume.kg./1000)
+  
+  # Format numbers with nice commas
+  eu_trade_tmp_agg$t <- comma(eu_trade_tmp_agg$t)
+  
+  # Rename to more attractive names
+  names(eu_trade_tmp_agg) <- c("flow_type","Partner Country","Species","kg","Quantity (t)")
+  
+  # Split into exports and imports (separate tables)
+  eu_trade_tmp_agg_exports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Export"),]
+  eu_trade_tmp_agg_imports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Import"),]
+  
+  # Remove the unnecessary columns
+  eu_trade_tmp_agg_exports <- eu_trade_tmp_agg_exports[,-c(1,4)]
+  eu_trade_tmp_agg_imports <- eu_trade_tmp_agg_imports[,-c(1,4)]
+  
+  # save to file
+  write.csv(eu_trade_tmp_agg_exports,
+            filepath_tmp_exporttable,
+            row.names = F)
+  write.csv(eu_trade_tmp_agg_imports,
+            filepath_tmp_importtable,
+            row.names = F)
+  
+  # time series of all applicable prices
+  # to do!
 
 # and finally, construct the text of the country page
 write(paste0(
