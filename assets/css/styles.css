@@ -30,10 +30,15 @@ img {
   filter: drop-shadow(10px 10px 10px #111111);
   margin-bottom: 5px
 }
+img.logo {
+  -webkit-filter: drop-shadow(0px 0px 0px #111111);
+  filter: drop-shadow(0px 0px 0px #111111);
+  margin-bottom: 5px
+}
 
 
-table.prodtable { font-size: 0.8em; }
-div.prodtablenotes { font-size: 0.8em; }
+html > table.prodtable { font-size: 0.8em; }
+html > div.prodtablenotes { font-size: 0.8em; }
 
 html { background-color: #252a34; color: #eaeaea; }
 a { color: #55C3C8; }
