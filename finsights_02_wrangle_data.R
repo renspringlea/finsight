@@ -581,13 +581,17 @@ for (i in c(1:nrow(production_countries))){
                                                       "Individuals_inventory")]
   
   # Format the columns nicely for tabulation
-  names(current_production_tmp)[2] <- "Production (t)"
   current_production_tmp$Harvest_age_years <- round(current_production_tmp$Harvest_age_years,3)
   current_production_tmp$Individuals_slaughtered <- comma(current_production_tmp$Individuals_slaughtered)
   current_production_tmp$Individuals_hatched <- comma(current_production_tmp$Individuals_hatched)
   current_production_tmp$Individuals_inventory <- comma(current_production_tmp$Individuals_inventory)
   current_production_tmp[is.na(current_production_tmp)] <- ""
+  
+  names(current_production_tmp)[2] <- "Production (t)"
+  names(current_production_tmp)[3] <- "Harvest weight (g)"
+  names(current_production_tmp)[4] <- "Harvest age (years)"
   names(current_production_tmp) <- gsub("_"," ",names(current_production_tmp))
+  current_production_tmp <- current_production_tmp[,c(1,3,4,5,2,6,7,8)]
   
   # save to file
   write.csv(current_production_tmp,
@@ -668,7 +672,13 @@ filename_tmp,
       {{ pair[1] }}
     {% endtablerow %}
   {% endfor %}
-</table>\n\n",
+</table>
+Table notes: harvest weight, harvest age, and mortality rate are set by us
+as biological parameters (see bottom of page for details). Production is then 
+used, with these parameters, to calculate individuals slaughtered, individuals
+hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any
+one time.
+\n\n",
   "# Trade (",
   trade_year,
   ")  ",

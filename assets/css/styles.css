@@ -26,8 +26,9 @@ body {
 }
 
 img {
-  -webkit-filter: drop-shadow(15px 15px 15px #111111);
-  filter: drop-shadow(15px 15px 15px #111111);
+  -webkit-filter: drop-shadow(10px 10px 10px #111111);
+  filter: drop-shadow(10px 10px 10px #111111);
+  margin-bottom: 5px
 }
 
 html { background-color: #252a34; color: #eaeaea; }
