@@ -4,3 +4,5 @@ _site
 .jekyll-metadata
 vendor
 data
+parameters/Finfish numbers - Data.csv
+parameters/shrimp_parameters.csv
