@@ -32,8 +32,8 @@ img {
 }
 
 
-.prodtable { font-size: small; }
-.prodtablenotes { font-size: small; }
+.prodtable { font-size: x-small; }
+.prodtablenotes { font-size: x-small; }
 
 html { background-color: #252a34; color: #eaeaea; }
 a { color: #55C3C8; }
