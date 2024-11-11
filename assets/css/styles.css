@@ -37,8 +37,8 @@ img.logo {
 }
 
 
-html > table.prodtable { font-size: 0.8em; }
-html > div.prodtablenotes { font-size: 0.8em; }
+html .prodtable { font-size: 0.1em; }
+html .prodtablenotes { font-size: 0.1em; }
 
 html { background-color: #252a34; color: #eaeaea; }
 a { color: #55C3C8; }
