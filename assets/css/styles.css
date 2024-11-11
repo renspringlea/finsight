@@ -31,6 +31,10 @@ img {
   margin-bottom: 5px
 }
 
+
+.prodtable { font-size: small; }
+.prodtablenotes { font-size: small; }
+
 html { background-color: #252a34; color: #eaeaea; }
 a { color: #55C3C8; }
 a:visited { color: #3E8E91; }

@@ -658,7 +658,7 @@ filename_tmp,
   ")",
   "\n\n",
   "
-  <table>
+  <table class='prodtable'>
   {% for row in site.data.",filename_tmp,"_production %}
     {% if forloop.first %}
     <tr>
@@ -673,11 +673,9 @@ filename_tmp,
     {% endtablerow %}
   {% endfor %}
 </table>
-Table notes: harvest weight, harvest age, and mortality rate are set by us
-as biological parameters (see bottom of page for details). Production is then 
-used, with these parameters, to calculate individuals slaughtered, individuals
-hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any
-one time.
+<div class='prodtablenotes'>
+Table notes: harvest weight, harvest age, and mortality rate are set by us as biological parameters (see bottom of page for details). Production is then used, with these parameters, to calculate individuals slaughtered, individuals hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any one time.
+</div>
 \n\n",
   "# Trade (",
   trade_year,
