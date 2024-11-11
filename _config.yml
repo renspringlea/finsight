@@ -27,6 +27,7 @@ sass:
   style: compressed
 strict_front_matter: true # default: false
 timezone: Europe/Berlin # default: local timezone
+future: true
 # remote_theme: michaelnordmeyer/jekyll-theme-nix
 # theme: jekyll-theme-nix
 
