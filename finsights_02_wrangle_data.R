@@ -417,13 +417,16 @@ nodes <- merge(nodes,
 
 # Make the base map
 map_trade <- ggplot() +
-  geom_spatvector(color="white",data=spatial_countries) +
-  xlim(-15.5,45) + 
+  geom_spatvector(color="white",fill="grey40",data=spatial_countries) +
+  xlim(-17,45) + 
   ylim(35,70) +
   theme_void() +
   scale_fill_viridis_c(
+    limits = c(-100000000, NA), 
+    breaks = c(0,100000000,200000000,300000000,400000000,500000000),
+    oob = scales::squish,
     direction=-1,
-    option="plasma",
+    option="mako",
     labels = unit_format(unit = "k", scale = 1e-6)) +
   theme(plot.title = element_text(hjust = 0.5),
         plot.subtitle = element_text(hjust = 0.5),
@@ -434,12 +437,13 @@ map_trade <- ggplot() +
            x = other_coordinate$x-1, 
            y = other_coordinate$y-1, 
            label = "(All\nnon-Europe)",
-           size=2,
-           colour="grey") +
+           size=4,
+           colour="grey20") +
   labs(title="Trade within Europe",
        subtitle=paste0("tonnes (net weight); ",production_recent_year),
        fill=NULL,
-       caption=paste0("Data accounts for ",str_to_lower(paste(unique(eu_trade$Species_custom),collapse=", "))))
+       caption=paste0("Data accounts for ",str_to_lower(paste(unique(eu_trade$Species_custom),collapse=", ")),
+                      "\nData *includes fisheries products*, not only aquaculture"))
 
 # Overlay the trade flows
 # Caution: This is computationally intensive
@@ -455,7 +459,7 @@ map_trade_flow <- add_flowmap(p=map_trade,
 # Caution: This is computationally intensive
 ggsave("~/finsight/assets/images/map_trade_flow.png",
        map_trade_flow,
-       width=8,height=7)
+       width=8,height=8)
 
 #####################
 ### Country pages ###
@@ -546,7 +550,7 @@ for (i in c(1:nrow(production_countries))){
   agg_fao_allyears_tmp <- aggregate(Individuals_slaughtered~PERIOD+Species_custom,
                                     FUN=sum,
                                     data=fao_allyears_tmp)
-  g_timeseries_production_tmp <- ggplot(aes(x=PERIOD,y=Individuals_slaughtered,colour=Species_custom),
+  g_timeseries_production_tmp <- ggplot(aes(x=PERIOD,y=Individuals_slaughtered,colour=Species_custom,linetype =Species_custom),
                                         data=agg_fao_allyears_tmp) +
     scale_x_continuous(breaks=seq(min(agg_fao_allyears_tmp$PERIOD),
                                   max(agg_fao_allyears_tmp$PERIOD),
@@ -558,6 +562,7 @@ for (i in c(1:nrow(production_countries))){
          colour=NULL,
          x=NULL,
          y=NULL,
+         linetype=NULL,
          caption=caption_tmp) +
     geom_line() +
     theme(plot.title = element_text(hjust = 0.5),
