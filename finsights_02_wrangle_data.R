@@ -263,6 +263,7 @@ eu_retail <- rbindlist(mget(ls(pattern = "^data_eu_retail.*")))
 # Convert price per kg to numeric
 # this produces "NAs" when there is no data, which is correct
 eu_retail$PRICE.PER.KG..EUR. <- as.numeric(eu_retail$PRICE.PER.KG..EUR.)
+eu_retail$PRICE.PER.UNIT..EUR. <- as.numeric(eu_retail$PRICE.PER.UNIT..EUR.)
 
 # Import the list of retail products that we want to visualise
 retail_products <- read.csv("~/finsight/parameters/retail_products.csv")
@@ -507,10 +508,14 @@ for (i in c(1:nrow(production_countries))){
   filename_tmp <- gsub("ü","u",filename_tmp)
   
   # Use this file name to define up-front the file names and paths that we will use for
-  # the time series graph
+  # the production time series graph
   filepath_tmp_timeseries <- paste0("~/finsight/assets/images/",
                                     filename_tmp,
                                     "_timeseries.png")
+  # the price time series graph
+  filepath_tmp_pricetimeseries <- paste0("~/finsight/assets/images/",
+                                    filename_tmp,
+                                    "_pricetimeseries.png")
   # the table of production for the most recent year
   filepath_tmp_productiontable <- paste0("~/finsight/_data/",
                                          filename_tmp,
@@ -522,6 +527,7 @@ for (i in c(1:nrow(production_countries))){
   filepath_tmp_importtable <- paste0("~/finsight/_data/",
                                          filename_tmp,
                                          "_import.csv")
+  
   # and the post (country page) itself
   filepath_tmp_post <- paste0("~/finsight/col",
                               col_tmp,
@@ -636,9 +642,88 @@ for (i in c(1:nrow(production_countries))){
             row.names = F)
   
   # time series of all applicable prices
-  # to do!
+  # subset retail data set so we only have rows from this country
+  eu_retail_country <- base::subset(eu_retail,COUNTRY==production_countries[i,"Country"])
+  
+  if (nrow(eu_retail_country)>0){
+    # Get just the most recent day of data
+    # Aggregate to get the average price by product (including category and size)
+    # and date
+    
+    # Specify the price measure (per kg or per unit)
+    eu_retail_country$measure <- ifelse(!is.na(eu_retail_country$PRICE.PER.KG..EUR.),
+                                        "EUR per kg",
+                                        "EUR per unit")
+    
+    eu_retail_country$ProductCategorySize <- paste0(eu_retail_country$PRODUCT,
+                                                          ", ",
+                                                          eu_retail_country$CATEGORY,
+                                                              ", ",
+                                                              eu_retail_country$SIZE.WEIGHT.RANGE,
+                                                              ", ",
+                                                              eu_retail_country$measure)
+    if ("EUR per kg" %in% unique(eu_retail_country$measure)){
+    eu_retail_country_aggregate <- aggregate(PRICE.PER.KG..EUR.~ProductCategorySize+Date,
+                                     FUN=mean,na.rm=T,data=eu_retail_country)
+    names(eu_retail_country_aggregate)[3] <- "Price"
+    }
+    if ("EUR per unit" %in% unique(eu_retail_country$measure)){
+    eu_retail_country_aggregate <- aggregate(PRICE.PER.UNIT..EUR.~ProductCategorySize+Date,
+                                     FUN=mean,na.rm=T,data=eu_retail_country)
+    names(eu_retail_country_aggregate)[3] <- "Price"
+    }
+    
+    eu_retail_country_aggregate$Date2 <- as.POSIXct(eu_retail_country_aggregate$Date)
+
+    g_eu_retail_country_aggregate_tmp <- ggplot(aes(x=Date2,
+                                                    y=Price,
+                                                    group=ProductCategorySize,
+                                                    colour=ProductCategorySize,
+                                                    linetype=ProductCategorySize),
+                                        data=eu_retail_country_aggregate) +
+    scale_x_datetime(date_breaks = "1 month",
+                   name=NULL) +
+    labs(title=title_tmp,
+         subtitle="Product price",
+         colour=NULL,
+         linetype=NULL,
+         x=NULL,
+         y=NULL) +
+    geom_line() +
+    theme(plot.title = element_text(hjust = 0.5),
+          plot.subtitle = element_text(hjust = 0.5),
+          legend.position="bottom",
+          plot.background = element_rect(fill="white",colour="white"),
+          axis.text.x = element_text(angle = 45, vjust = 1, hjust=1,size=6)) +
+      guides(colour=guide_legend(nrow=length(unique(eu_retail_country_aggregate$ProductCategorySize))))
+  
+  # Save to file
+  ggsave(filepath_tmp_pricetimeseries,g_eu_retail_country_aggregate_tmp,
+         width=6,height=4)
+
+  }
+  
+  
+  
+  
+  
+  
 
 # and finally, construct the text of the country page
+# Check if we're adding a country-specific retail price section
+  webpage_section_retail <- ""
+  if (nrow(eu_retail_country)>0){
+   webpage_section_retail <- paste0(
+     "# Retail prices",
+     "\n",
+     "![time series of individuals slaughtered over time](",
+  gsub("~/finsight/","../",filepath_tmp_pricetimeseries),
+  ")",
+  "\n\n"
+   )
+  }
+  
+  
 write(paste0(
   '---
 layout: post
@@ -678,6 +763,7 @@ filename_tmp,
 Table notes: harvest weight, harvest age, and mortality rate are set by us as biological parameters (see bottom of page for details). Production is then used, with these parameters, to calculate individuals slaughtered, individuals hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any one time. Production weight is rounded to the nearest tonne.
 </div>
 \n\n",
+webpage_section_retail,
   "# Trade (",
   trade_year,
   ")  ",
