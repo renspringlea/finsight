@@ -608,39 +608,40 @@ for (i in c(1:nrow(production_countries))){
   # table of exports for the most recent year, sorted by volume descending
   # note that eu_trade was already restricted to the most recent year in the
   # "Trade" section of this R script
-  eu_trade_tmp <- eu_trade[which(eu_trade$country=="Italy"),]
-  eu_trade_tmp_agg <- aggregate(volume.kg.~flow_type+partner_contry+Species_custom,
-                            FUN=sum,
-                            data=eu_trade_tmp)
-  
-  # Order by volume
-  eu_trade_tmp_agg <- eu_trade_tmp_agg[order(-eu_trade_tmp_agg$volume.kg.),]
-  
-  # Convert volume from kg to tonnes
-  eu_trade_tmp_agg$t <- round(eu_trade_tmp_agg$volume.kg./1000)
-  
-  # Format numbers with nice commas
-  eu_trade_tmp_agg$t <- comma(eu_trade_tmp_agg$t)
-  
-  # Rename to more attractive names
-  names(eu_trade_tmp_agg) <- c("flow_type","Partner Country","Species","kg","Quantity (t)")
-  
-  # Split into exports and imports (separate tables)
-  eu_trade_tmp_agg_exports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Export"),]
-  eu_trade_tmp_agg_imports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Import"),]
-  
-  # Remove the unnecessary columns
-  eu_trade_tmp_agg_exports <- eu_trade_tmp_agg_exports[,-c(1,4)]
-  eu_trade_tmp_agg_imports <- eu_trade_tmp_agg_imports[,-c(1,4)]
-  
-  # save to file
-  write.csv(eu_trade_tmp_agg_exports,
-            filepath_tmp_exporttable,
-            row.names = F)
-  write.csv(eu_trade_tmp_agg_imports,
-            filepath_tmp_importtable,
-            row.names = F)
-  
+  eu_trade_tmp <- eu_trade[which(eu_trade$country==production_countries[i,"Country"]),]
+  if (nrow(eu_trade_tmp)>0){
+    eu_trade_tmp_agg <- aggregate(volume.kg.~flow_type+partner_contry+Species_custom,
+                              FUN=sum,
+                              data=eu_trade_tmp)
+    
+    # Order by volume
+    eu_trade_tmp_agg <- eu_trade_tmp_agg[order(-eu_trade_tmp_agg$volume.kg.),]
+    
+    # Convert volume from kg to tonnes
+    eu_trade_tmp_agg$t <- round(eu_trade_tmp_agg$volume.kg./1000)
+    
+    # Format numbers with nice commas
+    eu_trade_tmp_agg$t <- comma(eu_trade_tmp_agg$t)
+    
+    # Rename to more attractive names
+    names(eu_trade_tmp_agg) <- c("flow_type","Partner Country","Species","kg","Quantity (t)")
+    
+    # Split into exports and imports (separate tables)
+    eu_trade_tmp_agg_exports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Export"),]
+    eu_trade_tmp_agg_imports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Import"),]
+    
+    # Remove the unnecessary columns
+    eu_trade_tmp_agg_exports <- eu_trade_tmp_agg_exports[,-c(1,4)]
+    eu_trade_tmp_agg_imports <- eu_trade_tmp_agg_imports[,-c(1,4)]
+    
+    # save to file
+    write.csv(eu_trade_tmp_agg_exports,
+              filepath_tmp_exporttable,
+              row.names = F)
+    write.csv(eu_trade_tmp_agg_imports,
+              filepath_tmp_importtable,
+              row.names = F)
+  }
   # time series of all applicable prices
   # subset retail data set so we only have rows from this country
   eu_retail_country <- base::subset(eu_retail,COUNTRY==production_countries[i,"Country"])
@@ -723,6 +724,53 @@ for (i in c(1:nrow(production_countries))){
    )
   }
   
+# Check if we're adding a country-specific trade section
+  webpage_section_trade <- ""
+  if (nrow(eu_trade_tmp)>0){
+    webpage_section_retail <- paste0(
+        "# Trade (",
+  trade_year,
+  ")  ",
+  "\n",
+  "## Exports  ",
+  "\n\n",
+  "
+  <table>\n
+  {% for row in site.data.",filename_tmp,"_export %}
+    {% if forloop.first %}
+    <tr>
+      {% for pair in row %}
+        <th>{{ pair[0] }}</th>
+      {% endfor %}
+    </tr>
+    {% endif %}
+    
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</table>",
+  "\n",
+  "## Imports  ",
+  "\n",
+  "
+  <table>
+  {% for row in site.data.",filename_tmp,"_import %}
+    {% if forloop.first %}
+    <tr>
+      {% for pair in row %}
+        <th>{{ pair[0] }}</th>
+      {% endfor %}
+    </tr>
+    {% endif %}
+    
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</table>\n"
+    )
+  }
   
 write(paste0(
   '---
@@ -764,47 +812,8 @@ Table notes: harvest weight, harvest age, and mortality rate are set by us as bi
 </div>
 \n\n",
 webpage_section_retail,
-  "# Trade (",
-  trade_year,
-  ")  ",
-  "\n",
-  "## Exports  ",
-  "\n\n",
-  "
-  <table>\n
-  {% for row in site.data.",filename_tmp,"_export %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-    
-    {% tablerow pair in row %}
-      {{ pair[1] }}
-    {% endtablerow %}
-  {% endfor %}
-</table>",
-  "\n",
-  "## Imports  ",
-  "\n",
-  "
-  <table>
-  {% for row in site.data.",filename_tmp,"_import %}
-    {% if forloop.first %}
-    <tr>
-      {% for pair in row %}
-        <th>{{ pair[0] }}</th>
-      {% endfor %}
-    </tr>
-    {% endif %}
-    
-    {% tablerow pair in row %}
-      {{ pair[1] }}
-    {% endtablerow %}
-  {% endfor %}
-</table>\n"),
+webpage_section_trade
+),
   filepath_tmp_post)
 }
 
