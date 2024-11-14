@@ -5,7 +5,7 @@
 folder_data <- ("~/finsight/data/")
 
 ### Get the current year ###
-this_year <- 2025#as.numeric(substr(Sys.Date(),1,4))
+this_year <- as.numeric(substr(Sys.Date(),1,4))
 
 ### Define URLs and filenames for downloading data ###
 # Set up an empty data frame that we will store URLs and filenames in
@@ -48,6 +48,11 @@ for (i in sequence_eu_retail){ # For each year...
 
 # Trade
 # This has multiple CSV files, one for each year, beginning in 2009
+# There is a CSV for each year for EU countries and a CSV for each year
+# for non-EU countries (but both are provided by EUMOFA, who in turn
+# receive the data from the company Trade Data Monitor)
+# see meta data here https://eumofa.eu/documents/20124/35680/Metadata+1+-+DATA+COLLECTION.pdf/ce349b1c-f73a-413a-b6f0-7dfee54fa042?t=1680597414536
+
 # So we need to build the url and filenames automatically
 # The for-loops do this for us
 sequence_eu_trade <- seq(2009,this_year,1) # Define the list of years
@@ -57,13 +62,18 @@ for (i in sequence_eu_trade){ # For each year...
   tmp_url <- paste0("https://dev-eumofa-bulk.s3.eu-west-1.amazonaws.com/",
                     i,
                     "_Trade_data_reported_by_EU_countries.csv")
+  tmp_url_noneu <- paste0("https://dev-eumofa-bulk.s3.eu-west-1.amazonaws.com/",
+                    i,
+                    "_Trade_data_reported_by_non-EU_countries.csv")
   
   # Produce that year's filename
   tmp_filename <- paste0("data_eu_trade_",i,".csv")
+  tmp_filename_noneu <- paste0("data_noneu_trade_",i,".csv")
   
   # Save to our data frame
   df_url_filename <- rbind(df_url_filename,
-                           c(tmp_url,tmp_filename))
+                           c(tmp_url,tmp_filename),
+                           c(tmp_url_noneu,tmp_filename_noneu))
 }
 
 # Remove our first row (test row)

@@ -314,14 +314,49 @@ trade_species <- read.csv("~/finsight/parameters/trade_species.csv")
 
 # Import all trade csv files
 # and assign to the global environment
-filenames_retail <- filenames[which(grepl("trade",filenames))]
-for (i in filenames_retail){
+# eu trade:
+filenames_trade <- filenames[which(grepl("eu_trade",filenames))]
+for (i in filenames_trade){
   csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
   assign(substr(i,1,nchar(i)-4), csv_tmp)
 }
 
-# Bind into a single data frame
-eu_trade <- rbindlist(mget(ls(pattern = "^data_eu_trade.*")))
+# non eu trade:
+filenames_trade_noneu <- filenames[which(grepl("noneu_trade",filenames))]
+for (i in filenames_trade_noneu){
+  csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
+  
+  # commensurate the column names so we can easily merge with the
+  # EU trade data below
+  # firstly add a column denoting intra or extra EU trade
+  # (obviously all extra EU by definition as this is the non-EU trade data)
+  csv_tmp$intra_extra_EU <- "Extra EU"
+  # secondly rename columns to match the EU counterparts
+  names(csv_tmp)[3] <- "country"
+  names(csv_tmp)[4] <- "partner_contry" #hahaha
+  names(csv_tmp)[4:9] <- gsub("\\.","_",names(csv_tmp)[4:9])
+  names(csv_tmp) <- gsub("Eur","EUR",names(csv_tmp))
+  names(csv_tmp) <- gsub("Kg","kg",names(csv_tmp))
+  
+  # assign to global environment
+  assign(substr(i,1,nchar(i)-4), csv_tmp)
+}
+
+# Check to make sure that *only* the United Kingdom is in both data sets
+# as a *reporting* country
+# (this is due to Brexit; all other *reporting* countries should be in either
+# the EU or the non-EU dataset, not both)
+# i.e. this command gives a single TRUE and the rest FALSE
+unique(eu_trade$country) %in% unique(noneu_trade$country)
+
+# Bind each of only EU and non-EU into a single data frame
+onlyeu_trade <- rbindlist(mget(ls(pattern = "^data_eu_trade.*")))
+noneu_trade <- rbindlist(mget(ls(pattern = "^data_noneu_trade.*")))
+
+# Combine both into a single data frame
+# (Sorry for the name; this is because I originally only had the EU dataset
+# and extended the code to include the non-EU dataset subsequently)
+eu_trade <- rbind(onlyeu_trade,noneu_trade)
 
 # Restrict the EU trade dataset to just the species that we have specified
 eu_trade <- eu_trade[which(eu_trade$main_commercial_species %in% trade_species$main_commercial_species),]
@@ -339,40 +374,43 @@ trade_year <- max(eu_trade$year)-1
 # Restrict the dataset to just that year
 eu_trade <- eu_trade[which(eu_trade$year==trade_year),]
 
-# Now, for all partner countries that we don't care about, we want to
+# Ensure that the countries that we care about are named in a way that
+# is consistent with the subsequent map data that we're about to combine with
+eu_trade[which(eu_trade$partner_contry=="Moldova, Republic of"),"partner_contry"]<-"Moldova"
+eu_trade[which(eu_trade$country=="Moldova, Republic of"),"country"]<-"Moldova"
+eu_trade[which(eu_trade$partner_contry=="Turkey"),"partner_contry"]<-"Türkiye"
+eu_trade[which(eu_trade$country=="Turkey"),"country"]<-"Türkiye"
+
+
+# Now, for all countries that we don't care about, we want to
 # set that to some other value (Other)
 # So we can still see extra-Europe trade on our map
+# This applies to both the reporting country and the partner country
+eu_trade[-which(eu_trade$country %in% production_countries$Country),"country"] <- "Other"
 eu_trade[-which(eu_trade$partner_contry %in% production_countries$Country),"partner_contry"] <- "Other"
 
-# Aggregate the trade volume by country, flow type (export vs import)
-# and partner country
-eu_trade_agg <- aggregate(volume.kg.~country+flow_type+partner_contry,
-                          FUN=sum,
-                          data=eu_trade)
-
-# Ensure that the countries that we care about are named correctly
-eu_trade_agg[which(eu_trade_agg$partner_contry=="Moldova, Republic of"),]<-"Moldova"
-eu_trade_agg[which(eu_trade_agg$country=="Moldova, Republic of"),"country"]<-"Moldova"
-
-# Specify the non-EU countries that we care about
-#non_eu_flows <- c("Turkey","Norway","Switzerland","Iceland","United Kingdom")
-#flows <- c(unique(eu_trade_agg$country),non_eu_flows)
-
-#eu_trade_agg <- eu_trade_agg[which(eu_trade_agg$flow_type=="Export" | eu_trade_agg$partner_contry %in% non_eu_flows),]
-#eu_trade_agg[which(eu_trade_agg$flow_type=="Export" | eu_trade_agg$partner_contry %in% non_eu_flows),]
-#eu_trade_agg <- eu_trade_agg[which(eu_trade_agg$partner_contry %in% flows),]
+# Remove trade records that do not correspond to the countries we care about
+# in either the reporting country or producing country
+eu_trade <- eu_trade[-which(eu_trade$partner_contry=="Other" & eu_trade$country=="Other"),]
 
 # Define origins and destination, based on whether the trade is export or import
 # The origin for exports is the reporting country
 # The origin for exports is the partner country
-eu_trade_agg$o <- ifelse(eu_trade_agg$flow_type=="Export",
-                            eu_trade_agg$country,
-                            eu_trade_agg$partner_contry)
+eu_trade$o <- ifelse(eu_trade$flow_type=="Export",
+                            eu_trade$country,
+                            eu_trade$partner_contry)
 # The destination for exports is the partner country
 # The destination for imports is the reporting country
-eu_trade_agg$d <- ifelse(eu_trade_agg$flow_type=="Export",
-                            eu_trade_agg$partner_contry,
-                            eu_trade_agg$country)
+eu_trade$d <- ifelse(eu_trade$flow_type=="Export",
+                            eu_trade$partner_contry,
+                            eu_trade$country)
+
+
+# Aggregate the trade volume by country, flow type (export vs import)
+# and partner country
+eu_trade_agg <- aggregate(volume.kg.~o+d,
+                          FUN=sum,
+                          data=eu_trade)
 
 # Set value as the volume of trade
 # and ensure it's numeric
@@ -397,7 +435,7 @@ trade_centroids_coordinates$name <- spatial_countries_2$name
 # To the northeast of Portugal will do nicely
 other_coordinate <- trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Portugal"),]
 other_coordinate$x <- other_coordinate$x-5
-other_coordinate$y <- other_coordinate$y+5
+other_coordinate$y <- other_coordinate$y+6.5
 other_coordinate$name <- "Other"
 trade_centroids_coordinates <- rbind(trade_centroids_coordinates,other_coordinate)
 
@@ -405,8 +443,10 @@ trade_centroids_coordinates <- rbind(trade_centroids_coordinates,other_coordinat
 # where "Other" is "all countries in our dataset that we don't explicitly care about"
 nodes <- data.frame("name"=unique(c(eu_trade_agg$o,eu_trade_agg$d)))
 
-# Rename Bosnia and Herzegovina so it matches correctly
+# Rename Bosnia and Herzegovina and Türkiye so it matches correctly
 trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Bosnia and Herz."),"name"] <- "Bosnia and Herzegovina"
+trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Turkey"),"name"] <- "Türkiye"
+
 
 # For each of those nodes, get the coordinate of the centroid
 nodes <- merge(nodes,
@@ -415,13 +455,58 @@ nodes <- merge(nodes,
                all.x=T,
                all.y=F)
 
+# Set Norway's node specifically (otherwise it gives us a node in
+# Svalbard which makes visualisation hard)
+# and likewise nudge Sweden's a little to the southeast
+nodes[which(nodes$name=="Norway"),"x"] <- 7
+nodes[which(nodes$name=="Norway"),"y"] <- 62
+nodes[which(nodes$name=="Sweden"),"x"] <- nodes[which(nodes$name=="Sweden"),"x"]
+nodes[which(nodes$name=="Sweden"),"y"] <- nodes[which(nodes$name=="Sweden"),"y"]-2
+
+# Merge node and trade data
+eu_trade_agg_coord1 <- merge(eu_trade_agg,
+      nodes,
+      by.x="o",
+      by.y="name",
+      all.x=T,
+      all.y=F)
+eu_trade_agg_coord2 <- merge(eu_trade_agg_coord1,
+                             nodes,
+                             by.x="d",
+                             by.y="name",
+                             all.x=T,
+                             all.y=F)
+
+# Rename for creating the curves on the map
+names(eu_trade_agg_coord2)[c(4:7)] <- c("x","y","xend","yend")
+
+# Manipulate the spatial data a little bit as necessarsy
+eu_trade_agg_coord3 <- st_zm(st_as_sf(eu_trade_agg_coord2,
+                                coords=c("x","y"),
+                             remove=F))
+eu_trade_agg_coord3 <- st_set_crs(eu_trade_agg_coord3,crs(spatial_countries))
+
+# Remove any records where the origin equals the destination
+# (this is only true for 1 row, UK, which is presumably due to the devolved
+# countries within the UK)
+eu_trade_agg_coord3 <- eu_trade_agg_coord3[-which(eu_trade_agg_coord3$d==eu_trade_agg_coord3$o),]
+
 # Make the base map
 map_trade <- ggplot() +
   geom_spatvector(color="white",fill="grey40",data=spatial_countries) +
-  xlim(-17,45) + 
-  ylim(35,70) +
+  #xlim(-17,36) +
+  #ylim(35.5,65) +
+  xlim(-25,38) +
+  ylim(35,66) +
   theme_void() +
-  scale_fill_viridis_c(
+  geom_curve(aes(x=x,y=y,xend=xend,yend=yend,
+                 colour=volume.kg.,
+                 alpha = volume.kg.,
+                 linewidth=volume.kg.),
+             data=eu_trade_agg_coord3,
+             curvature = 0.3,
+             arrow = arrow(angle=15)) +
+  scale_colour_viridis_c(
     limits = c(-100000000, NA), 
     breaks = c(0,100000000,200000000,300000000,400000000,500000000),
     oob = scales::squish,
@@ -432,33 +517,25 @@ map_trade <- ggplot() +
         plot.subtitle = element_text(hjust = 0.5),
         legend.position="bottom",
         plot.background = element_rect(fill="white",colour="white")) +
-  guides(fill = guide_colorbar(barwidth = 25))+
+  guides(colour = guide_colorbar(barwidth = 25))+
+  scale_alpha_continuous(guide="none") +
+  scale_linewidth_continuous(guide="none") +
   annotate("text", 
            x = other_coordinate$x-1, 
-           y = other_coordinate$y-1, 
+           y = other_coordinate$y-2, 
            label = "(All\nnon-Europe)",
            size=4,
            colour="grey20") +
-  labs(title="Trade within Europe",
+  labs(title="Trade of seafood in Europe",
        subtitle=paste0("tonnes (net weight); ",production_recent_year),
-       fill=NULL,
+       colour=NULL,
        caption=paste0("Data accounts for ",str_to_lower(paste(unique(eu_trade$Species_custom),collapse=", ")),
                       "\nData *includes fisheries products*, not only aquaculture"))
+map_trade
 
-# Overlay the trade flows
-# Caution: This is computationally intensive
-map_trade_flow <- add_flowmap(p=map_trade,
-                              od=eu_trade_agg,
-                              nodes=nodes,
-                              node_radius_factor=0.3,
-                              outline_linewidth=0,
-                              alpha=1,
-                              arrow_point_angle=25
-                              )
 # Save to file
-# Caution: This is computationally intensive
 ggsave("~/finsight/assets/images/map_trade_flow.png",
-       map_trade_flow,
+       map_trade,
        width=8,height=8)
 
 #####################
