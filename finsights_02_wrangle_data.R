@@ -341,17 +341,17 @@ for (i in filenames_trade_noneu){
   # assign to global environment
   assign(substr(i,1,nchar(i)-4), csv_tmp)
 }
+# Bind each of only EU and non-EU into a single data frame
+onlyeu_trade <- rbindlist(mget(ls(pattern = "^data_eu_trade.*")))
+noneu_trade <- rbindlist(mget(ls(pattern = "^data_noneu_trade.*")))
 
 # Check to make sure that *only* the United Kingdom is in both data sets
 # as a *reporting* country
 # (this is due to Brexit; all other *reporting* countries should be in either
 # the EU or the non-EU dataset, not both)
 # i.e. this command gives a single TRUE and the rest FALSE
-unique(eu_trade$country) %in% unique(noneu_trade$country)
+unique(onlyeu_trade$country) %in% unique(noneu_trade$country)
 
-# Bind each of only EU and non-EU into a single data frame
-onlyeu_trade <- rbindlist(mget(ls(pattern = "^data_eu_trade.*")))
-noneu_trade <- rbindlist(mget(ls(pattern = "^data_noneu_trade.*")))
 
 # Combine both into a single data frame
 # (Sorry for the name; this is because I originally only had the EU dataset
@@ -478,7 +478,7 @@ eu_trade_agg_coord2 <- merge(eu_trade_agg_coord1,
                              all.y=F)
 
 # Rename for creating the curves on the map
-names(eu_trade_agg_coord2)[c(4:7)] <- c("x","y","xend","yend")
+names(eu_trade_agg_coord2)[c((ncol(eu_trade_agg_coord2)-3):ncol(eu_trade_agg_coord2))] <- c("x","y","xend","yend")
 
 # Manipulate the spatial data a little bit as necessarsy
 eu_trade_agg_coord3 <- st_zm(st_as_sf(eu_trade_agg_coord2,
@@ -502,8 +502,9 @@ map_trade <- ggplot() +
   geom_curve(aes(x=x,y=y,xend=xend,yend=yend,
                  colour=volume.kg.,
                  alpha = volume.kg.,
-                 linewidth=volume.kg.),
-             data=eu_trade_agg_coord3,
+                 linewidth=volume.kg.
+                 ),
+            data=eu_trade_agg_coord3,
              curvature = 0.3,
              arrow = arrow(angle=15)) +
   scale_colour_viridis_c(
