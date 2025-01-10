@@ -381,6 +381,8 @@ eu_trade[which(eu_trade$country=="Moldova, Republic of"),"country"]<-"Moldova"
 eu_trade[which(eu_trade$partner_contry=="Turkey"),"partner_contry"]<-"Türkiye"
 eu_trade[which(eu_trade$country=="Turkey"),"country"]<-"Türkiye"
 
+# Check Egypt specifically
+# eu_trade_egypt <- eu_trade[which(eu_trade$partner_contry=="Egypt"),]
 
 # Now, for all countries that we don't care about, we want to
 # set that to some other value (Other)
