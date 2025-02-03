@@ -113,7 +113,7 @@ Mortality during whole production cycle: 0.68 (best literature estimate)
 
 Beyond these key species, we have taken parameters for other numerically important farmed aquatic species in Europe.
 
-For shrimp, we have obtained parameters from Waldhorn and Autric @ [Rethink Priorities](https://rethinkpriorities.org/research-area/shrimp-the-animals-most-commonly-used-and-killed-for-food-production/).
+For shrimp, we have obtained parameters from Waldhorn and Autric at [Rethink Priorities](https://rethinkpriorities.org/research-area/shrimp-the-animals-most-commonly-used-and-killed-for-food-production/).
 
 Beyond the five most significant farmed fish species in Europe (detailed above), there are some farmed fish species that are less numerically significant for Europe as a whole but still meaningful in some countries. For these finfish, we have obtained estimated body weights from [Fishcount](https://fishcount.org.uk/estimates/farmedfishes/data01/fishcount_fctab_emw_part_level1.php). Since these finfish are less numerically significant (though still certainly important), we have invested less effort into estimating the other biological parameters. As such, for these species, we use rough placeholders for duration and mortality. **We welcome any improvement to these numbers.**
 

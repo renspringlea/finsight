@@ -81,10 +81,6 @@ fao[which(is.na(fao$Species_custom)),"Species_custom"] <- "Other"
 # of countries that we specified
 fao <- fao[which(fao$ISO2_Code %in% production_countries$ISO2_Code,),]
 
-# Get just the columns we want in the parameters data frame, and rename
-parameters_finfish <- parameters_finfish[,c(1,3,5,7)]
-names(parameters_finfish) <- c("Species","Harvest_weight_g","Harvest_age_mo","Mortality_rate")
-
 # Convert mortality rate to a proportion (rather than a percentage)
 parameters_finfish$Mortality_rate <- 0.01*as.numeric(
   gsub("%","",parameters_finfish$Mortality_rate))
