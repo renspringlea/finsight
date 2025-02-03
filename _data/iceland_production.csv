@@ -1,6 +1,6 @@
 "Species","Harvest weight (g)","Harvest age (years)","Mortality rate","Production (t)","Individuals slaughtered","Individuals hatched","Individuals inventory"
-"Atlantic salmon","4600","2.083","0.00376",44934,"9,768,261","2,597,941,721","20,350,543"
-"Rainbow trout","1300","2.083","0.00343",1131,"870,000","253,644,315","1,812,500"
+"Atlantic salmon","4600","2.083","0.376",44934,"9,768,261","25,979,417","20,350,543"
+"Rainbow trout","1300","2.083","0.343",1131,"870,000","2,536,443","1,812,500"
 "Arctic char","","","",4931,"","",""
 "Senegalese sole","","","",352,"","",""
 "Atlantic halibut","","","",2,"","",""

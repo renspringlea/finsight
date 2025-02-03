@@ -81,10 +81,6 @@ fao[which(is.na(fao$Species_custom)),"Species_custom"] <- "Other"
 # of countries that we specified
 fao <- fao[which(fao$ISO2_Code %in% production_countries$ISO2_Code,),]
 
-# Convert mortality rate to a proportion (rather than a percentage)
-parameters_finfish$Mortality_rate <- 0.01*as.numeric(
-  gsub("%","",parameters_finfish$Mortality_rate))
-
 # Convert life durations to years (rather than days or months)
 parameters_shrimp$Harvest_age_years <- parameters_shrimp$Harvest_age_days/365.25
 parameters_finfish$Harvest_age_years <- parameters_finfish$Harvest_age_mo/12
