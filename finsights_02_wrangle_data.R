@@ -868,11 +868,7 @@ filename_tmp,
   production_recent_year,
   ")  ",
   "\n",
-  "![time series of individuals slaughtered over time](",
-  gsub("~/finsight/","../",filepath_tmp_timeseries),
-  ")",
-  "\n\n",
-  "
+"
   <table class='prodtable'>
   {% for row in site.data.",filename_tmp,"_production %}
     {% if forloop.first %}
@@ -890,8 +886,13 @@ filename_tmp,
 </table>
 <div class='prodtablenotes'>
 Table notes: harvest weight, harvest age, and mortality rate are set by us as biological parameters (see bottom of page for details). Production is then used, with these parameters, to calculate individuals slaughtered, individuals hatched, and individuals inventory. 'Inventory' refers to the number of fish alive on animals at any one time. Production weight is rounded to the nearest tonne.
+Biological parameters explained and cited <a href=\"{% link parameters.md %}\">here</a>. Note that some biological parameters for less frequently farmed species are placeholder values.
 </div>
 \n\n",
+  "![time series of individuals slaughtered over time](",
+  gsub("~/finsight/","../",filepath_tmp_timeseries),
+  ")",
+  "\n\n",
 webpage_section_retail,
 webpage_section_trade
 ),
