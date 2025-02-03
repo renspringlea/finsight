@@ -123,9 +123,11 @@ These species include:
 - North African catfish (1,500 g)
 - Meagre (2,500 g)
 - Turbot (1,300 g)
-- Sturgeons nei 46,000 g)
+- Sturgeons nei (6,000 g)
+- European eel (400 g)
+- Yellowtail amberjack (4,000 g)
 
-For those four species, we arbitrarily use a lifespan of 12 months and a mortality of 0.3. This is simply a placeholder value, but it is better than using no placeholder at all (e.g. mortality of 0). **We welcome any improvement to these numbers.**
+For those six species, we arbitrarily use a lifespan of 12 months and a mortality of 0.3. This is simply a placeholder value, but it is better than using no placeholder at all (e.g. mortality of 0). **We welcome any improvement to these numbers.**
 
 Lastly, for these species, we use the same values as the main five fish species (described above):
 - Crucian carp (same values as common carp)
