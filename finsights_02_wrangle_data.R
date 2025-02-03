@@ -23,7 +23,7 @@ library(flowmapper) #For mapping trade
 
 # Load parameters
 # Finfish biological parameters (especially slaughter weight)
-parameters_finfish <- read.csv("~/finsight/parameters/Finfish numbers - Data.csv")
+parameters_finfish <- read.csv("~/finsight/parameters/finfish_parameters.csv")
 
 # Shrimp biological parameters
 # These aren't actually useful for Europe, which isn't a major shrimp producer

@@ -1,0 +1,19 @@
+Species,Harvest_weight_g,Harvest_age_mo,Mortality_rate
+Atlantic salmon,4600,25,0.376
+Common carp,1500,36,0.68
+European seabass,400,25,0.214
+Gilthead seabream,350,25,0.26
+Rainbow trout,1300,25,0.343
+North African catfish,1500,12,0.3
+Meagre,2500,12,0.3
+Turbot,1300,12,0.3
+Sturgeons nei,6000,12,0.3
+Crucian carp,1500,36,0.68
+Silver carp,1500,36,0.68
+Bighead carp,1500,36,0.68
+Sea trout,1300,25,0.343
+Cyprinids nei,1500,36,0.68
+Trouts nei,1300,25,0.343
+Salmonids nei,4600,25,0.376
+Freshwater breams nei,350,25,0.26
+Freshwater bream,350,25,0.26
