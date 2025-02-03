@@ -1,6 +1,7 @@
 #Set up environment
 library(ggplot2) #For graphing
 theme_set(theme_bw()) #Because I'm fashionable
+library(dplyr) #I don't like it but it's important for a couple of lines
 library(measurements) #For converting units
 library(stringr) #For converting units
 library(viridis) #To help graphing
@@ -45,6 +46,27 @@ species <- read.csv("~/finsight/data/CL_FI_SPECIES_GROUPS.csv")
 # Load FAO quantity and value production data
 Aquaculture_Quantity <- read.csv("~/finsight/data/Aquaculture_Quantity.csv")
 Aquaculture_Value <- read.csv("~/finsight/data/Aquaculture_Value.csv")
+
+# Aggregate quantity and value across different *environments*
+# (e.g. brackish, marine)
+# as environment isn't relevant to us
+# Note that this uses dplyr grammar (the only time I use such
+# a method in this script)
+Aquaculture_Quantity <- Aquaculture_Quantity %>% 
+  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>% 
+  mutate(VALUE_OLD = VALUE, VALUE = sum(VALUE_OLD))
+Aquaculture_Quantity <- Aquaculture_Quantity[-which(base::duplicated(Aquaculture_Quantity[,c("COUNTRY.UN_CODE",
+                                               "SPECIES.ALPHA_3_CODE",
+                                               "PERIOD",
+                                               "VALUE")])),]
+
+Aquaculture_Value <- Aquaculture_Value %>% 
+  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>% 
+  mutate(VALUE_OLD = VALUE, VALUE = sum(VALUE_OLD))
+Aquaculture_Value <- Aquaculture_Value[-which(base::duplicated(Aquaculture_Value[,c("COUNTRY.UN_CODE",
+                                               "SPECIES.ALPHA_3_CODE",
+                                               "PERIOD",
+                                               "VALUE")])),]
 
 # Merge into a single dataframe of FAO data (both quantity and value)
 fao <- rbind(Aquaculture_Quantity,Aquaculture_Value)

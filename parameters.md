@@ -25,6 +25,8 @@ The main weakness of this approach is that parameters sometimes do vary systemat
 
 For the same reasons, it is often necessary to use informal reasoning to derive some parameters. This is the case when, for example, we have mortality rates for grow-out but not for other stages of production. We also often round values. We would prefer not to use values that represent many decimal places, as this frequently implies a level of precision that simply does not exist in the data.
 
+The estimates for mortality result in an implied number of individuals that is higher than the number of juvenile fish reported in the literature for particular countries (see section 2.1 of our aforementioned literature review). This could indicate that our numbers are more comprehensive and account for many fish who die very young; on the other hand, this could indicate that our mortality estimates are systematically higher than the actual mortality rates that occur in reality.
+
 Lastly, we have ensured that **all parameters are easily visible on the pages for each country**. This means that these parameters, which are really assumptions, are clear; if you disagree with the values we have chosen for any of these parameters, then you are very welcome to calculate your own values.
 
 # Parameter estimates
@@ -78,7 +80,7 @@ Duration of whole production cycle: 25 months
 Mortality during whole production cycle: 0.376 (literature estimate)
 
 ## Rainbow trout
-Body weight at slaughter: 1,300 g
+Body weight at slaughter: 1300 g
 - In 2020, 38% of trout produced in the EU is "large" (over 1.2 kg). The top large trout-producing countries in the EU are France, Finland, Poland, Denmark, and Sweden. Finland and Sweden produce exclusively large trout. The other 62% is "portion" trout (below 1.2 kg), though the term is also sometimes split into "medium" and "portion" (the cut-off being 500 g). The top portion trout-producing countries are Italy, denmark, France, Spain, and Germany. Italy and Germany produce *mostly* portion trout. See EUMOFA 2023 ([Case study: Large trout in the EU](https://eumofa.eu/documents/20124/35623/PTAT_Large+trout.pdf/4923045b-73a7-e7ce-16ec-bd33301286a8?t=1686569699668)).
 - Body weight after marine harvest = 3,000 g (literature estimate, Denmark)
 - Body weight after freshwater harvest in Denmark = 300 g (median of literature estimates)
