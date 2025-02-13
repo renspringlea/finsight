@@ -1,6 +1,6 @@
 "Partner Country","Species","Quantity (t)"
 "France","Salmonids","33,856"
-"Other","Salmonids","29,753"
+"Other","Salmonids","29,752"
 "Poland","Salmonids","5,408"
 "Ireland","Salmonids","3,899"
 "Netherlands","Salmonids","1,859"
@@ -29,4 +29,5 @@
 "Ireland","Bass and bream","2"
 "Other","Bass and bream","1"
 "Norway","Salmonids","1"
+"Morocco","Salmonids","0"
 "Malta","Carp","0"

@@ -213,6 +213,18 @@ ggsave("~/finsight/assets/images/map_production.png",
        map_production,
        width=6,height=6)
 
+# Also make a transparent version to save to file
+map_production_transparent <- map_production +
+  theme(
+    panel.background = element_rect(fill='transparent',color='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent',color='transparent'), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent',color='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent',color='transparent') #transparent legend panel
+  )
+ggsave("~/finsight/assets/images/map_production_transparent.png",map_production_transparent,width=6,height=6,bg='transparent')
+
 # Make a table for the website main page
 # Perform a similar aggregation,
 # except that it's individuals by country and by species category
@@ -398,6 +410,13 @@ eu_trade[which(eu_trade$country=="Turkey"),"country"]<-"Türkiye"
 # Check Egypt specifically
 # eu_trade_egypt <- eu_trade[which(eu_trade$partner_contry=="Egypt"),]
 
+# We want to add some countries to this trade map that were not in the production map
+# We care the most about Egypt due to recent policy developments (opening up trade)
+# and makes sense to include the other Mediterranean African countries at the same time
+trade_countries_to_add <- c("Morocco","Algeria","Tunisia","Libya","Egypt")
+df_trade_countries_to_add <- countries[which(countries$Country %in% trade_countries_to_add),]
+production_countries <- rbind(production_countries,df_trade_countries_to_add)
+
 # Now, for all countries that we don't care about, we want to
 # set that to some other value (Other)
 # So we can still see extra-Europe trade on our map
@@ -444,7 +463,7 @@ trade_centroids <- terra::centroids(spatial_countries_2,inside=T)
 trade_centroids_coordinates <- as.data.frame(geom(trade_centroids)[,c("x","y")])
 
 # Add the country names of each set of coordinates
-trade_centroids_coordinates$name <- spatial_countries_2$name
+trade_centroids_coordinates$name <- spatial_countries_2$admin
 
 # Now we need to add somewhere for the "other" trade to point on the graph
 # We'll specify some arbitrary, out-of-the-way coordinate
@@ -462,6 +481,7 @@ nodes <- data.frame("name"=unique(c(eu_trade_agg$o,eu_trade_agg$d)))
 # Rename Bosnia and Herzegovina and Türkiye so it matches correctly
 trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Bosnia and Herz."),"name"] <- "Bosnia and Herzegovina"
 trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Turkey"),"name"] <- "Türkiye"
+trade_centroids_coordinates[which(trade_centroids_coordinates$name=="Republic of Serbia"),"name"] <- "Serbia"
 
 
 # For each of those nodes, get the coordinate of the centroid
@@ -507,13 +527,25 @@ eu_trade_agg_coord3 <- st_set_crs(eu_trade_agg_coord3,crs(spatial_countries))
 # countries within the UK)
 eu_trade_agg_coord3 <- eu_trade_agg_coord3[-which(eu_trade_agg_coord3$d==eu_trade_agg_coord3$o),]
 
+# Repeat the code to create the base map
+# I don't like to repeat code, but it's important because we are using more
+# countries for trade than we did for production
+spatial_countries_t <- ne_countries(scale=50)
+
+# Restrict that set of international borders to the countries that
+# we have specified
+spatial_countries_t <- spatial_countries_t[which(spatial_countries_t$iso_a2_eh %in% production_countries$ISO2_Code),]
+
+# Add the aggregated production data to the spatial vector data
+spatial_countries_t <- merge(spatial_countries_t,production_individuals,
+                           by.x="iso_a2_eh",by.y="ISO2_Code",
+                           all=T)
+
 # Make the base map
 map_trade <- ggplot() +
-  geom_spatvector(color="white",fill="grey40",data=spatial_countries) +
-  #xlim(-17,36) +
-  #ylim(35.5,65) +
+  geom_spatvector(color="white",fill="grey40",data=spatial_countries_t) +
   xlim(-25,38) +
-  ylim(35,66) +
+  ylim(19,66) +
   theme_void() +
   geom_curve(aes(x=x,y=y,xend=xend,yend=yend,
                  colour=volume.kg.,
@@ -544,16 +576,19 @@ map_trade <- ggplot() +
            size=4,
            colour="grey20") +
   labs(title="Trade of seafood in Europe",
-       subtitle=paste0("tonnes (net weight); ",production_recent_year),
-       colour=NULL,
-       caption=paste0("Data accounts for ",str_to_lower(paste(unique(eu_trade$Species_custom),collapse=", ")),
-                      "\nData *includes fisheries products*, not only aquaculture"))
+       subtitle=paste0("tonnes (net weight); ",
+                       production_recent_year,
+                       "\n\n",
+                       "Data accounts for ",str_to_lower(paste(unique(eu_trade$Species_custom),collapse=", ")),
+                      "\nData *includes fisheries products*, not only aquaculture",
+                      "\n"),
+       colour=NULL)
 map_trade
 
 # Save to file
 ggsave("~/finsight/assets/images/map_trade_flow.png",
        map_trade,
-       width=8,height=8)
+       width=10,height=10)
 
 #####################
 ### Country pages ###
