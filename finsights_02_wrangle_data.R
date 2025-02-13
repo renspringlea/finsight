@@ -267,6 +267,9 @@ prodtable$`Total (M)` <- rowSums(prodtable[,-1])
 # Order the table by the total individuals slaughtered
 prodtable <- prodtable[order(-prodtable$Total),]
 
+# Rename "Faeroe" to "Faroe" purely for consistency
+prodtable$Country <- gsub("Faeroe Is.","Faroe Islands",prodtable$Country)
+
 # Save to file
 write.csv(prodtable,"~/finsight/_data/prodtable.csv",row.names=F)
 
