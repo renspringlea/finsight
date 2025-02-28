@@ -242,6 +242,7 @@ production_individuals_species_long <- data.frame("Species"=production_individua
                                                   "Country"=production_individuals_species$name,
                                                   "Individuals_slaughtered"=production_individuals_species$Individuals_slaughtered)
 
+
 # Round the individuals slaughtered to the nearest 100,000
 production_individuals_species_long$Individuals_slaughtered <- round(production_individuals_species_long$Individuals_slaughtered/
                                                                       (10^6),1)
@@ -412,6 +413,15 @@ eu_trade[which(eu_trade$country=="Turkey"),"country"]<-"Türkiye"
 
 # Check Egypt specifically
 # eu_trade_egypt <- eu_trade[which(eu_trade$partner_contry=="Egypt"),]
+
+# Check Norway and Sweden
+eu_trade_n <- eu_trade[which(eu_trade$country=="Norway" &
+                                eu_trade$flow_type=="Export" &
+                                eu_trade$partner_contry=="Sweden"),]
+
+eu_trade_s <- eu_trade[which(eu_trade$country=="Sweden" &
+                                eu_trade$flow_type=="Import" &
+                                eu_trade$partner_contry=="Norway"),]
 
 # We want to add some countries to this trade map that were not in the production map
 # We care the most about Egypt due to recent policy developments (opening up trade)
