@@ -879,6 +879,7 @@ for (i in c(1:nrow(production_countries))){
   trade_year,
   ")  ",
   "\n",
+  "Note: The following trade data is given as it is reported. Trade data can be inaccurate when a country imports fish for further processing and re-export. This is especially true for countries that act as a first port of entry to the EU, such as Sweden (the \"Rotterdam effect\").",
   "## Exports  ",
   "\n\n",
   "
