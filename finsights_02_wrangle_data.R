@@ -52,16 +52,16 @@ Aquaculture_Value <- read.csv("~/finsight/data/Aquaculture_Value.csv")
 # as environment isn't relevant to us
 # Note that this uses dplyr grammar (the only time I use such
 # a method in this script)
-Aquaculture_Quantity <- Aquaculture_Quantity %>% 
-  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>% 
+Aquaculture_Quantity <- Aquaculture_Quantity %>%
+  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>%
   mutate(VALUE_OLD = VALUE, VALUE = sum(VALUE_OLD))
 Aquaculture_Quantity <- Aquaculture_Quantity[-which(base::duplicated(Aquaculture_Quantity[,c("COUNTRY.UN_CODE",
                                                "SPECIES.ALPHA_3_CODE",
                                                "PERIOD",
                                                "VALUE")])),]
 
-Aquaculture_Value <- Aquaculture_Value %>% 
-  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>% 
+Aquaculture_Value <- Aquaculture_Value %>%
+  group_by(COUNTRY.UN_CODE, SPECIES.ALPHA_3_CODE, PERIOD) %>%
   mutate(VALUE_OLD = VALUE, VALUE = sum(VALUE_OLD))
 Aquaculture_Value <- Aquaculture_Value[-which(base::duplicated(Aquaculture_Value[,c("COUNTRY.UN_CODE",
                                                "SPECIES.ALPHA_3_CODE",
@@ -191,11 +191,11 @@ spatial_countries <- merge(spatial_countries,production_individuals,
 # Produce a pretty map
 map_production <- ggplot() +
   geom_spatvector(aes(fill=Individuals_slaughtered),data=spatial_countries) +
-  xlim(-10,45) + 
+  xlim(-10,45) +
   ylim(35,70) +
   scale_fill_viridis_c(trans = "log",
-                       option="rocket", 
-                       direction=-1, 
+                       option="rocket",
+                       direction=-1,
                        labels = unit_format(unit = "M", scale = 1e-6),
                        breaks = breaks_log(n=6)) +
   theme_void() +
@@ -355,7 +355,7 @@ for (i in filenames_trade){
 filenames_trade_noneu <- filenames[which(grepl("noneu_trade",filenames))]
 for (i in filenames_trade_noneu){
   csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
-  
+
   # commensurate the column names so we can easily merge with the
   # EU trade data below
   # firstly add a column denoting intra or extra EU trade
@@ -367,7 +367,7 @@ for (i in filenames_trade_noneu){
   names(csv_tmp)[4:9] <- gsub("\\.","_",names(csv_tmp)[4:9])
   names(csv_tmp) <- gsub("Eur","EUR",names(csv_tmp))
   names(csv_tmp) <- gsub("Kg","kg",names(csv_tmp))
-  
+
   # assign to global environment
   assign(substr(i,1,nchar(i)-4), csv_tmp)
 }
@@ -569,7 +569,7 @@ map_trade <- ggplot() +
              curvature = 0.3,
              arrow = arrow(angle=15)) +
   scale_colour_viridis_c(
-    limits = c(-100000000, NA), 
+    limits = c(-100000000, NA),
     breaks = c(0,100000000,200000000,300000000,400000000,500000000),
     oob = scales::squish,
     direction=-1,
@@ -582,9 +582,9 @@ map_trade <- ggplot() +
   guides(colour = guide_colorbar(barwidth = 25))+
   scale_alpha_continuous(guide="none") +
   scale_linewidth_continuous(guide="none") +
-  annotate("text", 
-           x = other_coordinate$x-1, 
-           y = other_coordinate$y-2, 
+  annotate("text",
+           x = other_coordinate$x-1,
+           y = other_coordinate$y-2,
            label = "(All\nnon-Europe)",
            size=4,
            colour="grey20") +
@@ -624,8 +624,8 @@ today_date <- as.character(Sys.Date())
 production_countries <- production_countries[order(production_countries$Country),]
 
 # Specify the column (corresponds to the column on the website homepage)
-production_countries$column <- rep(1:3, 
-                                        length.out = nrow(production_countries), 
+production_countries$column <- rep(1:3,
+                                        length.out = nrow(production_countries),
                                         each = ceiling(nrow(production_countries)/3))
 
 # Remove all old files in the directories
@@ -643,16 +643,16 @@ for (i in c(1:nrow(production_countries))){
 
   # Get the country name
   title_tmp <- production_countries[i,"Country"]
-  
+
   # Get the column (corresponds to the column on the website homepage)
   col_tmp <- production_countries[i,"column"]
-  
+
   # Create a lower-case filename without any spaces
   filename_tmp <- str_to_lower(gsub(" ","",title_tmp))
-  
+
   # Remove the ü in Turkiye (as it causes issues with building the website)
   filename_tmp <- gsub("ü","u",filename_tmp)
-  
+
   # Use this file name to define up-front the file names and paths that we will use for
   # the production time series graph
   filepath_tmp_timeseries <- paste0("~/finsight/assets/images/",
@@ -673,7 +673,7 @@ for (i in c(1:nrow(production_countries))){
   filepath_tmp_importtable <- paste0("~/finsight/_data/",
                                          filename_tmp,
                                          "_import.csv")
-  
+
   # and the post (country page) itself
   filepath_tmp_post <- paste0("~/finsight/col",
                               col_tmp,
@@ -682,12 +682,12 @@ for (i in c(1:nrow(production_countries))){
                               "-",
                               filename_tmp,
                               ".md")
-  
+
   # Create the caption (proportion of production that we have mean weights for)
   caption_tmp <- paste0("This graph accounts for ",
                         100*round(sum(fao_allyears_tmp[!is.na(fao_allyears_tmp$Individuals_slaughtered),"VALUE"])/sum(fao_allyears_tmp$VALUE),3),
                         " % of production weight.")
-  
+
   # Aggregate into our species category
   agg_fao_allyears_tmp <- aggregate(Individuals_slaughtered~PERIOD+Species_custom,
                                     FUN=sum,
@@ -712,18 +712,18 @@ for (i in c(1:nrow(production_countries))){
           legend.position="bottom",
           plot.background = element_rect(fill="white",colour="white"),
           axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1,size=6))
-  
+
   # Save to file
   ggsave(filepath_tmp_timeseries,g_timeseries_production_tmp,
          width=6,height=4)
-  
+
   # table of most recent production, sorted by individuals descending, showing all biological params
   current_production_tmp <- fao_quantity[which(fao_quantity$ISO2_Code==production_countries[i,"ISO2_Code"]),]
-  
+
   # Order by individuals then (for ones we didn't calculate individuals for) weight
   current_production_tmp <- current_production_tmp[order(-current_production_tmp$Individuals_slaughtered,
                                                          -current_production_tmp$VALUE),]
-  
+
   # Get just the columns we want to visualise
   current_production_tmp <- current_production_tmp[,c("Species","VALUE",
                                                       "Harvest_weight_g",
@@ -732,7 +732,7 @@ for (i in c(1:nrow(production_countries))){
                                                       "Individuals_slaughtered",
                                                       "Individuals_hatched",
                                                       "Individuals_inventory")]
-  
+
   # Format the columns nicely for tabulation
   current_production_tmp$VALUE <- round(current_production_tmp$VALUE)
   current_production_tmp$Harvest_age_years <- round(current_production_tmp$Harvest_age_years,3)
@@ -740,18 +740,18 @@ for (i in c(1:nrow(production_countries))){
   current_production_tmp$Individuals_hatched <- comma(current_production_tmp$Individuals_hatched)
   current_production_tmp$Individuals_inventory <- comma(current_production_tmp$Individuals_inventory)
   current_production_tmp[is.na(current_production_tmp)] <- ""
-  
+
   names(current_production_tmp)[2] <- "Production (t)"
   names(current_production_tmp)[3] <- "Harvest weight (g)"
   names(current_production_tmp)[4] <- "Harvest age (years)"
   names(current_production_tmp) <- gsub("_"," ",names(current_production_tmp))
   current_production_tmp <- current_production_tmp[,c(1,3,4,5,2,6,7,8)]
-  
+
   # save to file
   write.csv(current_production_tmp,
             filepath_tmp_productiontable,
             row.names = F)
-  
+
   # table of exports for the most recent year, sorted by volume descending
   # note that eu_trade was already restricted to the most recent year in the
   # "Trade" section of this R script
@@ -760,27 +760,27 @@ for (i in c(1:nrow(production_countries))){
     eu_trade_tmp_agg <- aggregate(volume.kg.~flow_type+partner_contry+Species_custom,
                               FUN=sum,
                               data=eu_trade_tmp)
-    
+
     # Order by volume
     eu_trade_tmp_agg <- eu_trade_tmp_agg[order(-eu_trade_tmp_agg$volume.kg.),]
-    
+
     # Convert volume from kg to tonnes
     eu_trade_tmp_agg$t <- round(eu_trade_tmp_agg$volume.kg./1000)
-    
+
     # Format numbers with nice commas
     eu_trade_tmp_agg$t <- comma(eu_trade_tmp_agg$t)
-    
+
     # Rename to more attractive names
     names(eu_trade_tmp_agg) <- c("flow_type","Partner Country","Species","kg","Quantity (t)")
-    
+
     # Split into exports and imports (separate tables)
     eu_trade_tmp_agg_exports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Export"),]
     eu_trade_tmp_agg_imports <- eu_trade_tmp_agg[which(eu_trade_tmp_agg$flow_type=="Import"),]
-    
+
     # Remove the unnecessary columns
     eu_trade_tmp_agg_exports <- eu_trade_tmp_agg_exports[,-c(1,4)]
     eu_trade_tmp_agg_imports <- eu_trade_tmp_agg_imports[,-c(1,4)]
-    
+
     # save to file
     write.csv(eu_trade_tmp_agg_exports,
               filepath_tmp_exporttable,
@@ -792,17 +792,17 @@ for (i in c(1:nrow(production_countries))){
   # time series of all applicable prices
   # subset retail data set so we only have rows from this country
   eu_retail_country <- base::subset(eu_retail,COUNTRY==production_countries[i,"Country"])
-  
+
   if (nrow(eu_retail_country)>0){
     # Get just the most recent day of data
     # Aggregate to get the average price by product (including category and size)
     # and date
-    
+
     # Specify the price measure (per kg or per unit)
     eu_retail_country$measure <- ifelse(!is.na(eu_retail_country$PRICE.PER.KG..EUR.),
                                         "EUR per kg",
                                         "EUR per unit")
-    
+
     eu_retail_country$ProductCategorySize <- paste0(eu_retail_country$PRODUCT,
                                                           ", ",
                                                           eu_retail_country$CATEGORY,
@@ -820,7 +820,7 @@ for (i in c(1:nrow(production_countries))){
                                      FUN=mean,na.rm=T,data=eu_retail_country)
     names(eu_retail_country_aggregate)[3] <- "Price"
     }
-    
+
     eu_retail_country_aggregate$Date2 <- as.POSIXct(eu_retail_country_aggregate$Date)
 
     g_eu_retail_country_aggregate_tmp <- ggplot(aes(x=Date2,
@@ -844,18 +844,18 @@ for (i in c(1:nrow(production_countries))){
           plot.background = element_rect(fill="white",colour="white"),
           axis.text.x = element_text(angle = 45, vjust = 1, hjust=1,size=6)) +
       guides(colour=guide_legend(nrow=length(unique(eu_retail_country_aggregate$ProductCategorySize))))
-  
+
   # Save to file
   ggsave(filepath_tmp_pricetimeseries,g_eu_retail_country_aggregate_tmp,
          width=6,height=4)
 
   }
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 
 # and finally, construct the text of the country page
 # Check if we're adding a country-specific retail price section
@@ -870,7 +870,7 @@ for (i in c(1:nrow(production_countries))){
   "\n\n"
    )
   }
-  
+
 # Check if we're adding a country-specific trade section
   webpage_section_trade <- ""
   if (nrow(eu_trade_tmp)>0){
@@ -880,6 +880,7 @@ for (i in c(1:nrow(production_countries))){
   ")  ",
   "\n",
   "Note: The following trade data is given as it is reported. Trade data can be inaccurate when a country imports fish for further processing and re-export. This is especially true for countries that act as a first port of entry to the EU, such as Sweden (the \"Rotterdam effect\").",
+  "\n",
   "## Exports  ",
   "\n\n",
   "
@@ -892,7 +893,7 @@ for (i in c(1:nrow(production_countries))){
       {% endfor %}
     </tr>
     {% endif %}
-    
+
     {% tablerow pair in row %}
       {{ pair[1] }}
     {% endtablerow %}
@@ -911,7 +912,7 @@ for (i in c(1:nrow(production_countries))){
       {% endfor %}
     </tr>
     {% endif %}
-    
+
     {% tablerow pair in row %}
       {{ pair[1] }}
     {% endtablerow %}
@@ -919,7 +920,7 @@ for (i in c(1:nrow(production_countries))){
 </table>\n"
     )
   }
-  
+
 write(paste0(
   '---
 layout: post
@@ -945,7 +946,7 @@ filename_tmp,
       {% endfor %}
     </tr>
     {% endif %}
-    
+
     {% tablerow pair in row %}
       {{ pair[1] }}
     {% endtablerow %}
@@ -965,4 +966,3 @@ webpage_section_trade
 ),
   filepath_tmp_post)
 }
-
