@@ -1,32 +1,36 @@
 "Product","Country","Category","Product size","Date","Price (EUR/kg)"
-"Gilthead seabream","Belgium","Fresh","450 - 650 g",2025-07-31,18.99
-"Gilthead seabream","France","Fresh","450 - 650 g",2025-07-31,12.77
-"Gilthead seabream","Greece","Fresh","1 kg",2025-07-31,12.5
-"Gilthead seabream","Italy","Fresh","300 - 650 G",2025-07-31,17.19
-"Gilthead seabream","Portugal","Fresh","450 - 650 g",2025-07-31,11.3
-"Gilthead seabream","Romania","Fresh","1 kg",2025-07-31,60.84
-"Gilthead seabream","Spain","Fresh","450 - 650 g",2025-07-31,8.75
-"Salmon fillets","Belgium","Fresh","100 - 300 g",2025-07-31,31.01
-"Salmon fillets","Denmark","Fresh","1 kg",2025-07-31,262.9
-"Salmon fillets","Finland","Fresh","1 kg",2025-07-31,28.46
-"Salmon fillets","France","Fresh","300 - 600 g",2025-07-31,25.11
-"Salmon fillets","Germany","Fresh","1 kg",2025-07-31,20.07
-"Salmon fillets","Greece","Fresh","1 kg",2025-07-31,23.9
-"Salmon fillets","Ireland","Fresh","1 kg",2025-07-31,22.71
-"Salmon fillets","Italy","Fresh","200 - 300 g",2025-07-31,30.04
-"Salmon fillets","Netherlands","Fresh","300 - 600 g",2025-07-31,27.23
-"Salmon fillets","Poland","Fresh","1 kg",2025-07-31,111.82
-"Salmon fillets","Portugal","Fresh","200 - 500 g",2025-07-31,20.94
-"Salmon fillets","Romania","Fresh","1 kg",2025-07-31,75.81
-"Salmon fillets","Spain","Fresh","300 - 600 g",2025-07-31,24.7
-"Salmon fillets","Sweden","Fresh","1 kg",2025-07-31,302.33
-"Seabass","Belgium","Fresh","300 - 400 g",2025-07-31,19.13
-"Seabass","France","Fresh","450 - 600 g",2025-07-31,11.74
-"Seabass","Greece","Fresh","1 kg",2025-07-31,12.9
-"Seabass","Italy","Fresh","300 - 400 g",2025-07-31,18.84
-"Seabass","Portugal","Fresh","300 - 500 g",2025-07-31,11.63
-"Seabass","Romania","Fresh","1 kg",2025-07-31,55.23
-"Seabass","Spain","Fresh","400 - 750 g",2025-07-31,9.28
-"Trout","Finland","Fresh","1 kg",2025-07-31,21.41
-"Trout","Poland","Fresh","1 kg",2025-07-31,40.34
-"Trout","Romania","Fresh","1 kg",2025-07-31,47.37
+"Gilthead seabream","Belgium","Fresh","450 - 650 g",2025-11-28,17.75
+"Gilthead seabream","France","Fresh","450 - 650 g",2025-11-28,14.26
+"Gilthead seabream","Greece","Fresh","1 kg",2025-11-28,12.5
+"Gilthead seabream","Italy","Fresh","300 - 650 G",2025-11-28,19.66
+"Gilthead seabream","Portugal","Fresh","450 - 650 g",2025-11-28,11.52
+"Gilthead seabream","Romania","Fresh","1 kg",2025-11-28,55.04
+"Gilthead seabream","Spain","Fresh","450 - 650 g",2025-11-28,9.14
+"Salmon fillets","Belgium","Fresh","100 - 300 g",2025-11-28,31.37
+"Salmon fillets","Czechia","Fresh","1 kg",2025-11-28,622.74
+"Salmon fillets","Denmark","Fresh","1 kg",2025-11-28,263.14
+"Salmon fillets","Finland","Fresh","1 kg",2025-11-28,28.66
+"Salmon fillets","France","Fresh","300 - 600 g",2025-11-28,24.44
+"Salmon fillets","Germany","Fresh","1 kg",2025-11-28,18.93
+"Salmon fillets","Greece","Fresh","1 kg",2025-11-28,23.9
+"Salmon fillets","Hungary","Fresh","1 kg",2025-11-28,9906.36
+"Salmon fillets","Ireland","Fresh","1 kg",2025-11-28,22.15
+"Salmon fillets","Italy","Fresh","200 - 300 g",2025-11-28,30.34
+"Salmon fillets","Netherlands","Fresh","300 - 600 g",2025-11-28,27.28
+"Salmon fillets","Poland","Fresh","1 kg",2025-11-28,116.63
+"Salmon fillets","Portugal","Fresh","200 - 500 g",2025-11-28,21.3
+"Salmon fillets","Romania","Fresh","1 kg",2025-11-28,76.44
+"Salmon fillets","Spain","Fresh","300 - 600 g",2025-11-28,25.15
+"Salmon fillets","Sweden","Fresh","1 kg",2025-11-28,314.46
+"Seabass","Belgium","Fresh","300 - 400 g",2025-11-28,18.62
+"Seabass","France","Fresh","450 - 600 g",2025-11-28,13.03
+"Seabass","Greece","Fresh","1 kg",2025-11-28,12.9
+"Seabass","Italy","Fresh","300 - 400 g",2025-11-28,19.75
+"Seabass","Portugal","Fresh","300 - 500 g",2025-11-28,12.17
+"Seabass","Romania","Fresh","1 kg",2025-11-28,52.23
+"Seabass","Spain","Fresh","400 - 750 g",2025-11-28,9.72
+"Trout","Czechia","Fresh","1 kg",2025-11-28,370.95
+"Trout","Finland","Fresh","1 kg",2025-11-28,21.91
+"Trout","Hungary","Fresh","1 kg",2025-11-28,3399
+"Trout","Poland","Fresh","1 kg",2025-11-28,40.74
+"Trout","Romania","Fresh","1 kg",2025-11-28,45.86
