@@ -16,7 +16,7 @@ df_url_filename <- data.frame("url"="test",
 # This only has one CSV file that never changes, so we can just specify a single
 # url and a single filename
 df_url_filename <- rbind(df_url_filename,
-                         c("https://www.fao.org/fishery/static/Data/Aquaculture_2024.1.0.zip",
+                         c("https://www.fao.org/fishery/static/Data/Aquaculture_2026.1.0.zip",
                            "data_production.zip"))
 
 # Consumption
