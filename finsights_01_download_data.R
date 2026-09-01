@@ -2,7 +2,7 @@
 ### Curl data from the internet ###
 ###################################
 ### Define folder path for storing data ###
-folder_data <- ("~/finsight/data/")
+folder_data <- ("~/Documents/Websites/finsight/data/")
 
 ### Get the current year ###
 this_year <- as.numeric(substr(Sys.Date(),1,4))

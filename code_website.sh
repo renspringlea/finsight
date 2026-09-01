@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 notify-send -u critical "Beginning finsight"
-cd ~/finsight
+cd ~/Documents/Websites/finsight
 Rscript finsights_01_download_data.R
 Rscript finsights_02_wrangle_data.R
 #bundle lock --add-platform x86_64-linux

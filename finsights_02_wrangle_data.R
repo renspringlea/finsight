@@ -24,28 +24,28 @@ library(flowmapper) #For mapping trade
 
 # Load parameters
 # Finfish biological parameters (especially slaughter weight)
-parameters_finfish <- read.csv("~/finsight/parameters/finfish_parameters.csv")
+parameters_finfish <- read.csv("~/Documents/Websites/finsight/parameters/finfish_parameters.csv")
 
 # Shrimp biological parameters
 # These aren't actually useful for Europe, which isn't a major shrimp producer
 # But I'm keeping the code here so that it's easier to expand to shrimp-producing
 # countries if we want to in the future
-parameters_shrimp <- read.csv("~/finsight/parameters/shrimp_parameters.csv")
+parameters_shrimp <- read.csv("~/Documents/Websites/finsight/parameters/shrimp_parameters.csv")
 
 # Custom species groupings
-species_custom <- read.csv("~/finsight/parameters/custom_species_categorisation.csv")
+species_custom <- read.csv("~/Documents/Websites/finsight/parameters/custom_species_categorisation.csv")
 
 # The countries that we want to include
-production_countries <- read.csv("~/finsight/parameters/production_countries.csv")
+production_countries <- read.csv("~/Documents/Websites/finsight/parameters/production_countries.csv")
 
 # Load FAO's country and species definitions
-countries <- read.csv("~/finsight/data/CL_FI_COUNTRY_GROUPS.csv")
-species <- read.csv("~/finsight/data/CL_FI_SPECIES_GROUPS.csv")
+countries <- read.csv("~/Documents/Websites/finsight/data/CL_FI_COUNTRY_GROUPS.csv")
+species <- read.csv("~/Documents/Websites/finsight/data/CL_FI_SPECIES_GROUPS.csv")
 
 
 # Load FAO quantity and value production data
-Aquaculture_Quantity <- read.csv("~/finsight/data/Aquaculture_Quantity.csv")
-Aquaculture_Value <- read.csv("~/finsight/data/Aquaculture_Value.csv")
+Aquaculture_Quantity <- read.csv("~/Documents/Websites/finsight/data/Aquaculture_Quantity.csv")
+Aquaculture_Value <- read.csv("~/Documents/Websites/finsight/data/Aquaculture_Value.csv")
 
 # Aggregate quantity and value across different *environments*
 # (e.g. brackish, marine)
@@ -209,7 +209,7 @@ map_production <- ggplot() +
        fill=NULL)
 
 # Save to file
-ggsave("~/finsight/assets/images/map_production.png",
+ggsave("~/Documents/Websites/finsight/assets/images/map_production.png",
        map_production,
        width=6,height=6)
 
@@ -223,7 +223,7 @@ map_production_transparent <- map_production +
     legend.background = element_rect(fill='transparent',color='transparent'), #transparent legend bg
     legend.box.background = element_rect(fill='transparent',color='transparent') #transparent legend panel
   )
-ggsave("~/finsight/assets/images/map_production_transparent.png",map_production_transparent,width=6,height=6,bg='transparent')
+ggsave("~/Documents/Websites/finsight/assets/images/map_production_transparent.png",map_production_transparent,width=6,height=6,bg='transparent')
 
 # Make a table for the website main page
 # Perform a similar aggregation,
@@ -272,7 +272,7 @@ prodtable <- prodtable[order(-prodtable$Total),]
 prodtable$Country <- gsub("Faeroe Is.","Faroe Islands",prodtable$Country)
 
 # Save to file
-write.csv(prodtable,"~/finsight/_data/prodtable.csv",row.names=F)
+write.csv(prodtable,"~/Documents/Websites/finsight/_data/prodtable.csv",row.names=F)
 
 ##############
 ### Retail ###
@@ -280,10 +280,10 @@ write.csv(prodtable,"~/finsight/_data/prodtable.csv",row.names=F)
 
 # Import all csv files with "retail" in the name in our data
 # and assign them to the global environment
-filenames <- list.files("~/finsight/data/")
+filenames <- list.files("~/Documents/Websites/finsight/data/")
 filenames_retail <- filenames[which(grepl("retail",filenames))]
 for (i in filenames_retail){
-  csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
+  csv_tmp <- read.csv(paste0("~/Documents/Websites/finsight/data/",i),sep=";")
   assign(substr(i,1,nchar(i)-4), csv_tmp)
 }
 
@@ -296,7 +296,7 @@ eu_retail$PRICE.PER.KG..EUR. <- as.numeric(eu_retail$PRICE.PER.KG..EUR.)
 eu_retail$PRICE.PER.UNIT..EUR. <- as.numeric(eu_retail$PRICE.PER.UNIT..EUR.)
 
 # Import the list of retail products that we want to visualise
-retail_products <- read.csv("~/finsight/parameters/retail_products.csv")
+retail_products <- read.csv("~/Documents/Websites/finsight/parameters/retail_products.csv")
 
 # Restrict to the products that we intend to visualise
 # (matches the product, category, and size range exact combination
@@ -332,7 +332,7 @@ eu_retail_aggregate$PRICE.PER.KG..EUR. <- round(eu_retail_aggregate$PRICE.PER.KG
 names(eu_retail_aggregate) <- c("Product","Country","Category","Product size","Date","Price (EUR/kg)")
 
 # Save to file
-write.csv(eu_retail_aggregate,"~/finsight/_data/eu_retail_aggregate.csv",row.names = F)
+write.csv(eu_retail_aggregate,"~/Documents/Websites/finsight/_data/eu_retail_aggregate.csv",row.names = F)
 
 #############
 ### Trade ###
@@ -340,21 +340,21 @@ write.csv(eu_retail_aggregate,"~/finsight/_data/eu_retail_aggregate.csv",row.nam
 
 # Import the CSV that specifies how we want to aggregate
 # species in the EU trade data
-trade_species <- read.csv("~/finsight/parameters/trade_species.csv")
+trade_species <- read.csv("~/Documents/Websites/finsight/parameters/trade_species.csv")
 
 # Import all trade csv files
 # and assign to the global environment
 # eu trade:
 filenames_trade <- filenames[which(grepl("eu_trade",filenames))]
 for (i in filenames_trade){
-  csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
+  csv_tmp <- read.csv(paste0("~/Documents/Websites/finsight/data/",i),sep=";")
   assign(substr(i,1,nchar(i)-4), csv_tmp)
 }
 
 # non eu trade:
 filenames_trade_noneu <- filenames[which(grepl("noneu_trade",filenames))]
 for (i in filenames_trade_noneu){
-  csv_tmp <- read.csv(paste0("~/finsight/data/",i),sep=";")
+  csv_tmp <- read.csv(paste0("~/Documents/Websites/finsight/data/",i),sep=";")
 
   # commensurate the column names so we can easily merge with the
   # EU trade data below
@@ -599,7 +599,7 @@ map_trade <- ggplot() +
 map_trade
 
 # Save to file
-ggsave("~/finsight/assets/images/map_trade_flow.png",
+ggsave("~/Documents/Websites/finsight/assets/images/map_trade_flow.png",
        map_trade,
        width=10,height=10)
 
@@ -629,9 +629,9 @@ production_countries$column <- rep(1:3,
                                         each = ceiling(nrow(production_countries)/3))
 
 # Remove all old files in the directories
-do.call(file.remove, list(list.files("~/finsight/col1/_posts", full.names = TRUE)))
-do.call(file.remove, list(list.files("~/finsight/col2/_posts", full.names = TRUE)))
-do.call(file.remove, list(list.files("~/finsight/col3/_posts", full.names = TRUE)))
+do.call(file.remove, list(list.files("~/Documents/Websites/finsight/col1/_posts", full.names = TRUE)))
+do.call(file.remove, list(list.files("~/Documents/Websites/finsight/col2/_posts", full.names = TRUE)))
+do.call(file.remove, list(list.files("~/Documents/Websites/finsight/col3/_posts", full.names = TRUE)))
 
 # Loop over all countries that we have specified in the countries CSV
 for (i in c(1:nrow(production_countries))){
@@ -655,27 +655,27 @@ for (i in c(1:nrow(production_countries))){
 
   # Use this file name to define up-front the file names and paths that we will use for
   # the production time series graph
-  filepath_tmp_timeseries <- paste0("~/finsight/assets/images/",
+  filepath_tmp_timeseries <- paste0("~/Documents/Websites/finsight/assets/images/",
                                     filename_tmp,
                                     "_timeseries.png")
   # the price time series graph
-  filepath_tmp_pricetimeseries <- paste0("~/finsight/assets/images/",
+  filepath_tmp_pricetimeseries <- paste0("~/Documents/Websites/finsight/assets/images/",
                                     filename_tmp,
                                     "_pricetimeseries.png")
   # the table of production for the most recent year
-  filepath_tmp_productiontable <- paste0("~/finsight/_data/",
+  filepath_tmp_productiontable <- paste0("~/Documents/Websites/finsight/_data/",
                                          filename_tmp,
                                          "_production.csv")
   # export and import tables
-  filepath_tmp_exporttable <- paste0("~/finsight/_data/",
+  filepath_tmp_exporttable <- paste0("~/Documents/Websites/finsight/_data/",
                                          filename_tmp,
                                          "_export.csv")
-  filepath_tmp_importtable <- paste0("~/finsight/_data/",
+  filepath_tmp_importtable <- paste0("~/Documents/Websites/finsight/_data/",
                                          filename_tmp,
                                          "_import.csv")
 
   # and the post (country page) itself
-  filepath_tmp_post <- paste0("~/finsight/col",
+  filepath_tmp_post <- paste0("~/Documents/Websites/finsight/col",
                               col_tmp,
                               "/_posts/",
                               today_date,
@@ -865,7 +865,7 @@ for (i in c(1:nrow(production_countries))){
      "# Retail prices",
      "\n",
      "![time series of individuals slaughtered over time](",
-  gsub("~/finsight/","../",filepath_tmp_pricetimeseries),
+  gsub("~/Documents/Websites/finsight/","../",filepath_tmp_pricetimeseries),
   ")",
   "\n\n"
    )
@@ -958,7 +958,7 @@ Biological parameters explained and cited <a href=\"{% link parameters.md %}\">h
 </div>
 \n\n",
   "![time series of individuals slaughtered over time](",
-  gsub("~/finsight/","../",filepath_tmp_timeseries),
+  gsub("~/Documents/Websites/finsight/","../",filepath_tmp_timeseries),
   ")",
   "\n\n",
 webpage_section_retail,
