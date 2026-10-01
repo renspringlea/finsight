@@ -1,35 +1,34 @@
 "Product","Country","Category","Product size","Date","Price (EUR/kg)"
-"Gilthead seabream","Belgium","Fresh","450 - 650 g",2026-04-30,17.16
-"Gilthead seabream","France","Fresh","450 - 650 g",2026-04-30,14.8
-"Gilthead seabream","Greece","Fresh","1 kg",2026-04-30,12.5
-"Gilthead seabream","Italy","Fresh","300 - 650 G",2026-04-30,17.9
-"Gilthead seabream","Portugal","Fresh","450 - 650 g",2026-04-30,10.79
-"Gilthead seabream","Romania","Fresh","1 kg",2026-04-30,66.19
-"Gilthead seabream","Spain","Fresh","450 - 650 g",2026-04-30,11.23
-"Salmon fillets","Belgium","Fresh","100 - 300 g",2026-04-30,30.73
-"Salmon fillets","Czechia","Fresh","1 kg",2026-04-30,644.48
-"Salmon fillets","Denmark","Fresh","1 kg",2026-04-30,285.47
-"Salmon fillets","Finland","Fresh","1 kg",2026-04-30,27.21
-"Salmon fillets","France","Fresh","300 - 600 g",2026-04-30,24.83
-"Salmon fillets","Germany","Fresh","1 kg",2026-04-30,18.9
-"Salmon fillets","Greece","Fresh","1 kg",2026-04-30,23.9
-"Salmon fillets","Hungary","Fresh","1 kg",2026-04-30,9856.36
-"Salmon fillets","Ireland","Fresh","1 kg",2026-04-30,23.05
-"Salmon fillets","Italy","Fresh","200 - 300 g",2026-04-30,26.9
-"Salmon fillets","Netherlands","Fresh","300 - 600 g",2026-04-30,28.23
-"Salmon fillets","Poland","Fresh","1 kg",2026-04-30,116.55
-"Salmon fillets","Portugal","Fresh","200 - 500 g",2026-04-30,21.19
-"Salmon fillets","Romania","Fresh","1 kg",2026-04-30,75.72
-"Salmon fillets","Spain","Fresh","300 - 600 g",2026-04-30,25.44
-"Salmon fillets","Sweden","Fresh","1 kg",2026-04-30,314.29
-"Seabass","Belgium","Fresh","300 - 400 g",2026-04-30,18.09
-"Seabass","France","Fresh","450 - 600 g",2026-04-30,13.09
-"Seabass","Greece","Fresh","1 kg",2026-04-30,13.9
-"Seabass","Italy","Fresh","300 - 400 g",2026-04-30,20.01
-"Seabass","Portugal","Fresh","300 - 500 g",2026-04-30,13.09
-"Seabass","Romania","Fresh","1 kg",2026-04-30,54.7
-"Seabass","Spain","Fresh","400 - 750 g",2026-04-30,10.09
-"Trout","Czechia","Fresh","1 kg",2026-04-30,449.9
-"Trout","Finland","Fresh","1 kg",2026-04-30,21.89
-"Trout","Poland","Fresh","1 kg",2026-04-30,40.05
-"Trout","Romania","Fresh","1 kg",2026-04-30,46.87
+"Gilthead seabream","France","Fresh","450 - 650 g",2026-08-31,14.8
+"Gilthead seabream","Greece","Fresh","1 kg",2026-08-31,12.5
+"Gilthead seabream","Italy","Fresh","300 - 650 G",2026-08-31,16.45
+"Gilthead seabream","Portugal","Fresh","450 - 650 g",2026-08-31,10.58
+"Gilthead seabream","Romania","Fresh","1 kg",2026-08-31,72.4
+"Gilthead seabream","Spain","Fresh","450 - 650 g",2026-08-31,9.12
+"Salmon fillets","Belgium","Fresh","100 - 300 g",2026-08-31,32.75
+"Salmon fillets","Czechia","Fresh","1 kg",2026-08-31,545.22
+"Salmon fillets","Denmark","Fresh","1 kg",2026-08-31,275.28
+"Salmon fillets","Finland","Fresh","1 kg",2026-08-31,25.92
+"Salmon fillets","France","Fresh","300 - 600 g",2026-08-31,24.69
+"Salmon fillets","Germany","Fresh","1 kg",2026-08-31,18.9
+"Salmon fillets","Greece","Fresh","1 kg",2026-08-31,23.9
+"Salmon fillets","Hungary","Fresh","1 kg",2026-08-31,10165.5
+"Salmon fillets","Ireland","Fresh","1 kg",2026-08-31,23.16
+"Salmon fillets","Italy","Fresh","200 - 300 g",2026-08-31,25.69
+"Salmon fillets","Netherlands","Fresh","300 - 600 g",2026-08-31,28.24
+"Salmon fillets","Poland","Fresh","1 kg",2026-08-31,116.32
+"Salmon fillets","Portugal","Fresh","200 - 500 g",2026-08-31,20.8
+"Salmon fillets","Romania","Fresh","1 kg",2026-08-31,54.24
+"Salmon fillets","Spain","Fresh","300 - 600 g",2026-08-31,26.08
+"Salmon fillets","Sweden","Fresh","1 kg",2026-08-31,310.69
+"Seabass","Belgium","Fresh","300 - 400 g",2026-08-31,19.5
+"Seabass","France","Fresh","450 - 600 g",2026-08-31,12.54
+"Seabass","Greece","Fresh","1 kg",2026-08-31,13.9
+"Seabass","Italy","Fresh","300 - 400 g",2026-08-31,18.68
+"Seabass","Portugal","Fresh","300 - 500 g",2026-08-31,11.12
+"Seabass","Romania","Fresh","1 kg",2026-08-31,41.6
+"Seabass","Spain","Fresh","400 - 750 g",2026-08-31,10.07
+"Trout","Finland","Fresh","1 kg",2026-08-31,20.81
+"Trout","Hungary","Fresh","1 kg",2026-08-31,3399
+"Trout","Poland","Fresh","1 kg",2026-08-31,36.9
+"Trout","Romania","Fresh","1 kg",2026-08-31,46.18
